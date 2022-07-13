@@ -89,7 +89,7 @@ function fn_onload(){
 								<input name="name" style="width:470px;" class="input" value="${sessionScope.id}" type="hidden">
 							</td>
 						</tr>	
-						
+						<!--별점-->
 						 <tr>
 							<th width="120" height="25" style="border-right:1px solid #ccc;">평점</th>
 							<td colspan="3" style="padding-left:7px;">
