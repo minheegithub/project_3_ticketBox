@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+	
+	 body{
+	 	
+	 }
+ 	 #main_picture1 {
+		            /*가로너비*/
+		            width: 100%;
+		            /*세로높이*/
+		            height: 300px;
+		            /*높이만큼 보여짐*/
+		            overflow: hidden;
+		            /*배경이미지*/
+		            background-image: url(../images/phone2.jpg);
+		            /*배경이미지 반복여부*/
+		            background-repeat: no-repeat;
+		            /*배경이미지 스크롤에 따른 이동*/
+		            background-attachment: scroll;
+		            /*배경이미지 사이즈*/
+		            background-size: 100% 464px;
+		            /*안쪽 그림자 효과 css3generator.com*/
+		            -webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+		            box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+		        }
+	  #write {			            
+			              /*가로너비*/
+		            width: 1175px;
+		            /*높이만큼 늘어남*/
+		            overflow: hidden;
+		            /*상대위치*/
+		            position: relative;
+		            /*block속성일 때 가운데 정렬*/
+		            margin: 0px auto;		            
+		} 
+	
+	#board{
+	
+		 margin: 100px 70px; 
+
+	}
+	 aside {
+		            /*가로너비*/
+		            width: 300px;
+		            /*세로높이*/
+		            height: 500px;
+		            /*왼쪽기준정렬*/
+		            float: left;
+		            /*높이만큼 보여짐*/
+		            overflow: hidden;
+		            /*상대위치*/
+		            position: relative;
+		            /*배경색상*/
+		            background-color: #1e1e1e;
+		         	background-image: url(../image/modify.PNG);
+					background-size: 100%;	
+		            
+		        }
+	
+	section {
+		            /*가로너비*/
+		            width: 800px;
+		            /*세로높이*/
+		            height: 500px;
+		            /*오른쪽 기준정렬*/
+		            float: right;
+		            /*높이만큼 보여짐*/
+		            overflow: hidden;
+		            /*상대위치*/
+		            position: relative;
+		        }
+	
+	caption{
+		font-size:14px;
+		font-weight:bold;
+		margin-bottom:12px;	
+		text-align:left;	
+	}
+
+	
+	
+	table{
+	
+		border-collapse: collapse; 
+	
+	}
+	
+	.btn{
+		border:1px solid #980000;
+		padding: 5px 10px;
+		font-size:12px;
+		color:#fff;
+		background-color:#980000;	
+		border-radius: 3px;	
+		
+	}
+	.btnT{
+		text-align:center;
+	}
+	
+	.update_table{
+		border-top:2px solid #b4252d;
+		border-bottom:2px solid #b4252d;
+		margin-bottom:10px;	
+	}
+	
+	.update_table tr{
+		border-bottom:1px solid #ccc;
+		font-size:12px;
+	}
+	.update_table td{
+		font-size:12px;
+	}
+	
+	.input{		
+		border-top:none;
+		border-left:none;
+		border-right:none;
+		border-bottom:1px solid black;
+		margin-left:10px;
+	}
+	

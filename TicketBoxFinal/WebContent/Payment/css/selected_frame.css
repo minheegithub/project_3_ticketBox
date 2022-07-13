@@ -1,0 +1,132 @@
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+h5,option{
+	font-family: 'S-CoreDream-3Light';
+	font-size: 14px;
+}
+/*할인 수단 선택 영역 */
+.content-box{
+	box-sizing: content-box;
+	width:70%;
+	height:500px;
+	padding: 20px;
+	border: 1px solid grey;
+	background-color: white;
+	float:left;
+	margin: 5px;
+	text-align: center;
+	
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+.selected_info{
+	width: 20%;
+	height: 520px; /*padding... 높이 수동 조작  */
+	padding:10px;
+	border:1px solid grey;
+	background-color: white;
+	margin: 5px;
+	float: left;	
+	
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	
+}
+.selected_info> div{
+	height: 150px;
+	background-color:#E5E5E5;
+	box-sizing: border-box;			
+}
+.selected_info .seat{
+	width: 100%;
+	font-family: 'S-CoreDream-3Light';	
+	font-size: 14px;	
+} 
+.selected_info .s_cost{
+	width: 100%;
+	font-family: 'S-CoreDream-3Light';	
+	font-size: 13px;
+}
+
+.flex-container{
+	list-style:none;
+	margin:10px;
+	padding:0;
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;
+	
+	float:left;
+	width: 150%;
+	height: 60px;
+	
+	text-align:center;		
+} 
+
+
+#select_return{
+	background-color: #B1B1B1;	
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;	
+	
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+
+	width: 107px;
+	height: 60px;
+	
+	margin-left:-40px;	
+}
+#select_return:hover{
+	color: #EAEAEA;
+	background-color: #F5A6B9;
+}
+/*공연 정보 받아올 때는 아래 처럼 가로 정렬이면 안된다..!  */
+ul  >li {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+    border : 0;
+    float: left;   
+}
+#select_complete{
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;	
+	
+	background-color: #B1B1B1;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+		
+	width: 107px;
+	height: 60px;
+}
+
+#select_complete:hover{
+	color: #EAEAEA;
+	background-color: #F5A6B9;
+}
+
+li.resizing{
+		float:left;		
+		padding:10px;
+		maring:1ppx;
+}
+/*이미지 리사이징  */
+img.resizing{
+	float:right;
+	width:30px;
+	height:30px;
+	padding:10px;
+	maring:1ppx;
+}
+
+
+

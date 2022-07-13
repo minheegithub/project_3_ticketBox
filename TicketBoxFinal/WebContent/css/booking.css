@@ -1,0 +1,584 @@
+@charset "UTF-8";
+
+/*------------------기본스타일------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	border: 0;
+}
+
+/* header */
+.header {
+	margin: 0 auto;
+	width: 1019px;
+	height: 100px;
+}
+
+.header .social {
+	position: relative;
+	float: left;
+	margin: 38px 0 25px;
+	width: 196px;
+	height: 25px;
+}
+
+.header .social ul li {
+	float: left;
+}
+
+.header .social li a {
+	display: block;
+	margin: 0 3px;
+	width: 25px;
+	height: 25px;
+}
+
+.header .social li:first-child a {
+	margin-left: 0;
+}
+
+.header .social .mileage_btn {
+	margin-left: 108px;
+	width: 88px;
+	height: 24px;
+}
+
+.header .signature {
+	float: left;
+	margin: 10px 0 0 236px;
+	width: 155px;
+	height: 78px;
+}
+
+.header .signature img {
+	width: 100%;
+}
+
+.header .location {
+	float: right;
+	margin-top: 38px;
+	height: 26px;
+}
+
+.header .location li {
+	float: left;
+	height: 26px;
+}
+
+.header .location li a {
+	display: block;
+	padding: 0 15px;
+	line-height: 26px;
+	text-decoration: none;
+	text-align: center;
+	font-family: "돋움", Dotum, sans-serif;
+	font-size: 12px;
+	background: url(./images/bg_table_col.gif) no-repeat left center;
+	color: #797d85;
+}
+
+.header .location li:first-child a {
+	background: none;
+}
+
+.header .location li:nth-child(3) a {
+	padding-right: 0;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+img {
+	vertical-align: top;
+	border: 0;
+}
+
+body, ul, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.clearfix::before, .clearfix::after {
+	content: "";
+	display: block;
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+.container {
+	min-width: 900px;
+}
+
+.keyvisual {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.keyvisual .control_btn .prev {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 200;
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	background: rgba(0, 0, 0, .5);
+	cursor: pointer;
+}
+
+.keyvisual .control_btn .next {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	z-index: 200;
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	background: rgba(0, 0, 0, .5);
+	cursor: pointer;
+}
+
+.keyvisual .control_btn button {
+	background-color: transparent;
+	border: none;
+	outline: 0;
+}
+
+.keyvisual ul {
+	width: 300%;
+}
+
+.keyvisual li {
+	float: left;
+	width: 33.333%;
+	overflow: hidden;
+}
+
+.keyvisual img {
+	width: 100%;
+}
+
+.key_control {
+	width: 100%;
+}
+
+.key_control ul {
+	width: 100%;
+	/* height: 50px;  */
+	text-align: center;
+	background-color: #fff;
+}
+
+.key_control li {
+	display: inline-block;
+	margin: 15px 10px;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	text-indent: -9999px;
+	background-color: #999;
+	border-radius: 50%;
+}
+
+.key_control li.active {
+	background-color: #000;
+}
+
+.key_control a {
+	display: block;
+	width: 100%;
+	height: 15px;
+}
+
+/*-------------디자인------------------------------------------------  */
+
+/*--------------------header------------------------------------*/
+header {
+	width: 100%;
+	height: 70px; /* 유레카!!! */
+	position: relative;
+	overflow: hidden;
+}
+
+#menuBar {
+	margin-top: 30px;
+	width: 1200px;
+	height: 60px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+#menuBar>ul {
+	/*글자로 속여서 text-align먹이려고  */
+	display: inline-block;
+	overflow: hidden;
+}
+
+#menuBar>ul>li {
+	float: left;
+	line-height: 50px;
+	font-size: 13px;
+}
+/*li(부모)에서 정의한 line-height그대로 먹는다.   */
+#menuBar>ul>li>a {
+	color: #797d85;
+	display: block; /*??  */
+	padding-left: 30px;
+	padding-right: 30px;
+	font-family: "돋움", Dotum, sans-serif;
+	font-weight: bold;
+}
+
+#menuBar>ul>li>a:hover {
+	color: #b4252d;
+}
+
+#menuBar li:hover {
+	border-bottom: 1px solid #eee;
+}
+
+#menuBar select {
+	float: right;
+	display: block;
+	height: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: border-box;
+	margin-top: 20px;
+	font-size: 10px;
+}
+/*---------------------------------------------------banner----------------------  */
+
+/*---------------------  */
+#gogo {
+	font-size: 12px;
+	width: 1140px;
+	overflow: hidden;
+	position: relative;
+	margin: 40px auto;
+}
+
+#gogo>div {
+	width: 210px;
+	margin-right: 10px;
+	margin-left: 120px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	border: 1px solid #eee;
+}
+
+#gogo div h3 {
+	line-height: 42px;
+	overflow: hidden;
+	box-sizing: border-box;
+	height: 42px;
+	color: #b4252d;
+}
+
+#gogo>div>a>h3:hover {
+	color: white;
+	background-color: #980000;
+}
+
+#ad {
+	font-size: 12px;
+	color: #b4252d;
+	width: 1140px;
+	overflow: hidden;
+	position: relative;
+	margin: 40px auto;
+}
+
+#ad>div {
+	width: 270px;
+	margin-right: 10px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+}
+
+#ad div h3 {
+	font-weight: 100;
+	line-height: 42px;
+	overflow: hidden;
+	box-sizing: border-box;
+	height: 42px;
+}
+
+#ad>div p {
+	overflow: hidden;
+	letter-spacing: -1px;
+	line-height: 38px;
+	background-color: green;
+}
+
+#ad>div:hover {
+	/*테두리 스타일*/
+	border: 2px solid #b4252d;
+	/*마우스를 올렸을 때 테두리 스타일이 지정되기에 테두리값을 박스의 너비와 높이에 포함시킴*/
+	box-sizing: border-box;
+}
+
+#main_picture {
+	/*가로너비*/
+	width: 100%;
+	/*세로높이*/
+	height: 300px;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*배경이미지*/
+	background-image: url(../images/phone2.jpg);
+	/*배경이미지 반복여부*/
+	background-repeat: no-repeat;
+	/*배경이미지 스크롤에 따른 이동*/
+	background-attachment: scroll;
+	/*배경이미지 사이즈*/
+	background-size: 100% 464px;
+	/*안쪽 그림자 효과 css3generator.com*/
+	-webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+	box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 40px;
+}
+
+/*------------------------------------------------------------------*/
+
+/*booking.jsp 부분*/
+#musicalImg {
+	margin: 10px 0px 10px 0px;
+	border: 2px outset grey;
+	width: 1200px;
+	overflow: hidden;
+	position: relative;
+	margin: 2px auto;
+}
+
+#select {
+	/*가로너비*/
+	width: 1180px;
+	/*높이만큼 늘어남*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+	margin: 2px auto;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-width: 2px;
+	border-style: double;
+	border-color: grey;
+	display: flex;
+}
+
+#select>div {
+	float: left;
+	text-align: center;
+	flex: 1;
+	margin: 5px;
+}
+
+#select>#selectDate>#input_date {
+	position: relative;
+	width: 200px;
+	height: 40px;
+	margin-top: 20px;
+}
+
+.hour1 {
+	border-bottom: 2px double grey;
+}
+
+#currentSeat {
+	border: 2px double grey;
+	border-radius: :2em;
+}
+
+#bookingButton {
+	position: relative;
+	left: 1250px;
+}
+/*------------------------------------------------------------------*/
+/*selectMusical.jsp 부분	*/
+.main_poster {
+	text-align: center;
+	border: 2px outset grey;
+}
+
+/*---------footer하단구조-------------------------------------------------*/
+footer {
+	width: 100%;
+	height: 120px;
+	background-color: #28282a;
+	overflow: hidden; /* ?? */
+	position: relative;
+}
+
+footer>div {
+	width: 1200px;
+	height: 90px;
+	margin: 0 auto;
+	position: relative;
+}
+
+footer>div>img {
+	float: left;
+	/* margin-top: 15px; */
+}
+
+footer>div>p {
+	float: left;
+	line-height: 24px;
+	margin-top: 24px;
+	margin-left: 32px;
+	color: #b9b9b9;
+	font-size: 10px;
+}
+
+footer p>a {
+	color: #b9b9b9;
+	margin-left: 20px;
+}
+
+footer p>span {
+	color: #69696b;
+	font-size: 11px;
+}
+/*높이는 따로 지정 안하나??높이는  select의 40px으로 지정되어있음  */
+footer>div>div {
+	float: right;
+	margin-top: 28px;
+}
+
+footer>div>div>img {
+	float: left;
+}
+
+footer>div>div>select {
+	display: block;
+	float: left;
+	height: 40px;
+	background-color: #242426;
+	color: white;
+	padding-left: 10px;
+	padding-right: 30px;
+	font-size: 11px;
+}
+/*반응형   */
+@media screen and (max-width:960px) {
+	#menuBar {
+		/*가로너비를 반응형 요소에 맞게 백분율로 지정*/
+		width: 100%;
+		/*반응형 효과를 부드럽게 나타내기위한 애니메이션 효과로서 브라우저를 줄이거나 늘였을때 부드럽게 반응하라. 0.7초만큼 반응하라*/
+		transition-duration: 0.7s;
+	}
+	/*상단 로고부분을 960브라우저 너비에서 가운데로 배치*/
+	#menuBar>.logo {
+		margin: 0 auto;
+		/*float속성이 현재 지정되어 있어서 가운데 배치를 하기 위한 설정값을 초기화시킴*/
+		float: none;
+		margin-top: 15px;
+	}
+	/*상단메뉴*/
+	#menuBar>ul {
+		/*현재 미디어쿼리 안에서는 보이지 않도록 display:none으로 지정*/
+		display: none;
+	}
+	/*상단 셀렉트박스*/
+	#menuBar>select {
+		/*현재 미디어쿼리 안에서는 보이지 않도록 display:none으로 지정*/
+		display: none;
+	}
+	#gogo {
+		/*실제 가로너비1140px이지만 브라우저 너비가 960px로 줄였을때의 균형을 맞추기 위한 80%너비로 지정*/
+		width: 80%;
+		/*반응형 효과를 부드럽게 나타내기위한 애니메이션 효과로서 브라우저를 줄이거나 늘였을때 부드럽게 반응하라. 0.7초만큼 반응하라*/
+		transition-duration: 0.7s;
+	}
+
+	/*콘텐츠내용에 대한 반응형 지정*/
+	#ad {
+		/*실제 가로너비1140px이지만 브라우저 너비가 960px로 줄였을때의 균형을 맞추기 위한 80%너비로 지정*/
+		width: 80%;
+		/*반응형 효과를 부드럽게 나타내기위한 애니메이션 효과로서 브라우저를 줄이거나 늘였을때 부드럽게 반응하라. 0.7초만큼 반응하라*/
+		transition-duration: 0.7s;
+	}
+	#ad>div {
+		/*실제 가로너비는 360px이지만 브라우저 너비가 960px로 줄였을때의 #contents박스의 너비안에서 2개씩 나열하기 위한 너비값을 마진값과 포함하여 48%로 지정함*/
+		width: 48%;
+		margin: 0;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+	#ad>div>img {
+		/*가변그리드안에서의 이미지는 백분율로 표시되어야 박스의 너비와 같은 크기로 보여짐*/
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+#main_picture1 {
+	/*가로너비*/
+	width: 100%;
+	/*세로높이*/
+	height: 300px;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*배경이미지*/
+	background-image: url(./images/phone2.jpg);
+	/*배경이미지 반복여부*/
+	background-repeat: no-repeat;
+	/*배경이미지 스크롤에 따른 이동*/
+	background-attachment: scroll;
+	/*배경이미지 사이즈*/
+	background-size: 100% 464px;
+	/*안쪽 그림자 효과 css3generator.com*/
+	-webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+	box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+}
+
+#timeChoice {
+	margin-top: 70px;
+	margin-bottom: 70px;
+}

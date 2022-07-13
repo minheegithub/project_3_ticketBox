@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+body {
+	font-size: 12px;
+}
+
+#main_picture1 {
+	/*가로너비*/
+	width: 100%;
+	/*세로높이*/
+	height: 300px;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*배경이미지*/
+	background-image: url(../images/phone2.jpg);
+	/*배경이미지 반복여부*/
+	background-repeat: no-repeat;
+	/*배경이미지 스크롤에 따른 이동*/
+	background-attachment: scroll;
+	/*배경이미지 사이즈*/
+	background-size: 100% 464px;
+	/*안쪽 그림자 효과 css3generator.com*/
+	-webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+	box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+}
+
+#view {
+	/*가로너비*/
+	width: 1175px;
+	/*높이만큼 늘어남*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+	/*block속성일 때 가운데 정렬*/
+	margin: 0px auto;
+}
+
+aside {
+	/*가로너비*/
+	width: 300px;
+	/*세로높이*/
+	height: 500px;
+	/*왼쪽기준정렬*/
+	float: left;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+	/*배경색상*/
+	background-color: #1e1e1e;
+	background-image: url(../image/side3.PNG);
+	background-size: 100%;
+}
+
+section {
+	/*가로너비*/
+	width: 800px;
+	/*세로높이*/
+	height: 500px;
+	/*오른쪽 기준정렬*/
+	float: right;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+#table {
+	margin: 44px 70px;
+}
+
+.view_table {
+	border-top: 2px solid #b4252d;
+	border-bottom: 2px solid #b4252d;
+	margin-bottom: 10px;
+}
+
+.view_table tr {
+	border-bottom: 1px solid #ccc;
+}
+
+.view_table th, .view_table td {
+	padding: 7px;
+	font-size: 12px;
+}
+
+.btn {
+	border: 1px solid #980000;
+	padding: 5px 10px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #980000;
+	border-radius: 3px;
+}
+
+.btnT {
+	text-align: center;
+}
+
+.board_title {
+	font-size: 17px;
+	margin-bottom: 7px;
+}
+
+i {
+	color: #dedede;
+}
+
+#new {
+	background-color: #F15F5F;
+	color: #fff;
+	border-radius: 70px;
+	font-size: 1px;
+}

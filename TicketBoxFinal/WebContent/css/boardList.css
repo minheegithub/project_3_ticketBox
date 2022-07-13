@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+#main_picture1 {
+	/*가로너비*/
+	width: 100%;
+	/*세로높이*/
+	height: 300px;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*배경이미지*/
+	background-image: url(../images/phone2.jpg);
+	/*배경이미지 반복여부*/
+	background-repeat: no-repeat;
+	/*배경이미지 스크롤에 따른 이동*/
+	background-attachment: scroll;
+	/*배경이미지 사이즈*/
+	background-size: 100% 464px;
+	/*안쪽 그림자 효과 css3generator.com*/
+	-webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+	box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+}
+
+#list {
+	margin: 0px auto;
+	/*가로너비*/
+	width: 1200px;
+	/*높이만큼 늘어남*/
+	overflow: hidden;
+	/*배경색상*/
+	/*  font-size:10px; */
+	font-family: 맑은고딕;
+}
+
+aside {
+	width: 340;
+	/*세로높이*/
+	height: 630px;
+	/*왼쪽기준정렬*/
+	float: left;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+	/*배경색상*/
+	/*    background-color: #1e1e1e; */
+	background-image: url(../image/shine4.PNG);
+	background-size: 100%;
+}
+
+section {
+	padding-top: 70px;
+	/*가로너비*/
+	width: 800px;
+	/*세로높이*/
+	height: 560px;
+	/*오른쪽 기준정렬*/
+	float: right;
+	/*높이만큼 보여짐*/
+	overflow: hidden;
+	/*상대위치*/
+	position: relative;
+}
+
+/*모든 테이블에 적용되는 속성   */
+table {
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+A:link {
+	text-decoration: none;
+	color: #000080
+}
+
+A:visited {
+	text-decoration: none;
+	color: #000080
+}
+
+A:active {
+	text-decoration: none;
+	color: #000080
+}
+
+A:hover {
+	text-decoration: none;
+	color: #529CFF
+}
+
+/*표  */
+.board_list {
+	border-top: 2px solid #b4252d;
+	border-bottom: 2px solid #b4252d;
+}
+
+.board_list th, .board_list td {
+	padding: 10px;
+}
+
+.board_list td {
+	text-align: center;
+}
+
+.board_list tr td:nth-child(2) {
+	text-align: left;
+}
+
+.board_page {
+	text-align: center;
+	/* background-color:yellow; */
+	margin-top: 7px;
+}
+
+.board_page .next {
+	display: inline-block;
+	font-size: 12px;
+	margin-left: 7px;
+	padding: 4px 7px;
+	border-radius: 100px;
+	background-color: #eee;
+	border: 1px solid #eee;
+}
+
+.board_page .paging {
+	font-size: 13px;
+}
+
+.board_title {
+	font-size: 17px;
+}
+
+.btn {
+	border: 1px solid #980000;
+	padding: 5px 10px;
+	color: #fff;
+	background-color: #980000;
+	border-radius: 3px;
+}
+
+.input {
+	width: 300px;
+	height: 21px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid black;
+}
+
+.input2 {
+	width: 70px;
+	height: 25px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid #980000;
+	color: #fff;
+	background-color: #980000;
+	border-radius: 3px;
+}
+
+#table {
+	width: 710px;
+	margin-left: 40px;
+}
+
+#new {
+	background-color: #F15F5F;
+	color: #fff;
+	border-radius: 70px;
+	font-size: 1px;
+}

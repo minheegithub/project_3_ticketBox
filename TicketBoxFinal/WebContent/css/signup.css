@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+		#main_picture1 {
+		            /*가로너비*/
+		            width: 100%;
+		            /*세로높이*/
+		            height: 300px;
+		            /*높이만큼 보여짐*/
+		            overflow: hidden;
+		            /*배경이미지*/
+		            background-image: url(../images/phone2.jpg);
+		            /*배경이미지 반복여부*/
+		            background-repeat: no-repeat;
+		            /*배경이미지 스크롤에 따른 이동*/
+		            background-attachment: scroll;
+		            /*배경이미지 사이즈*/
+		            background-size: 100% 464px;
+		            /*안쪽 그림자 효과 css3generator.com*/
+		            -webkit-box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+		            box-shadow: inset 3px 2px 25px 10px rgba(0, 0, 0, 0.8);
+		        }
+		
+			
+			#join_wrap{
+				width:700px;
+				margin:40px auto ;
+			 
+			 	/* padding:10px; */
+				/* background-color:#eee; */
+				padding-top:40px;
+				padding-left:40px;
+				padding-right:40px;
+				padding-bottom:40px;
+				border:1px solid #b4252d;
+				border-radius:10px;
+			
+			}
+			
+			#join_wrap .title{
+				padding:50px 0 20px;/*위 좌우 아래  */
+				font-size: 13px;
+			}
+			
+			fieldset{
+				border:0;
+			}
+			
+			table{
+				border-collapse:collapse;
+			}
+			
+			body{
+				font: 14px "나눔고딕", "Nanum Gothic", "sans-serif";
+				color:#333;
+				
+			}
+			
+			caption{
+				position:absolute;/*  위치를 지정할 때 사용한다 absolute를 사용하면 문서의 원래 위치와 상관없이 위치를 지정할 수 있다. */
+				left:9999em;/*  안보이게 하기 위해 왼쪽으로 날려버린 것이므로 실행화면에서 이 caption이 보이지 않게 된다. */
+				
+			}
+			
+			.joinTable th, .joinTable td{
+				padding:7px;
+				box-sizing:border-box;/*box-sizing : border-box; 는 테두리를 포함하여 박스의 크기를 지정하는 것이다.  */
+				border-bottom:1px solid #ddd;
+				font-size:12px;
+				
+			}
+			
+			.joinTable th{
+				text-align:center;
+				width:120px;
+			 	font-weight:bold; 
+				color:#980000;
+				border-right:1px solid #b4252d;
+			}
+			
+			.joinTable td{
+				width:540px;
+			}
+			
+			.joinTable .first{/* joinTable 속성을 가진 태그 내부의 first 속성에 대한 스타일이다. */
+				border-top:3px solid #b4252d;
+			}
+			.joinTable .last{/* joinTable 속성을 가진 태그 내부의 first 속성에 대한 스타일이다. */
+				border-bottom:1px solid #b4252d;
+			}
+			
+			.joinTable .textForm{
+				width:400px;
+				height: 22px;
+				border: 1px solid #ddd;
+				border-radius:5px;
+				padding: 0 10px;
+				box-sizing: border-box;
+				font-size:12px;
+			}
+			
+			/* 주소찾기 버튼 */
+		 	.joinTable .btn{
+				width: 80px;
+				height: 27px;
+				border:0;
+				background-color:#980000;
+				border-radius: 5px;
+				color: #fff;
+				margin-top:7px;
+				font-size:12px;
+			} 
+			
+			.btn_area{/* 하단부의 <div>태그에 대한 스타일을 지정한다. */
+				text-align:center;
+				margin:30px 0;
+			}
+			
+			.btn_area button{
+				width:100px;
+				height:40px;
+				margin: 0 10px;
+				border:0;
+				font-size:13px;
+			}
+			
+			.btn_area .btn_join{
+				background-color:#980000;
+				color:#fff;
+				border-radius:5px;
+			}
+	

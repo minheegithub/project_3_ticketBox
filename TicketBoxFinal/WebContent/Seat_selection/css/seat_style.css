@@ -1,0 +1,109 @@
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+} 
+ul li{
+	list-style-type: none;
+	float: left;
+	/* outline: 1px dotted #E8DAB3; 블록 윤곽선 그릴 때 활용하기*/
+	margin-left: 20px;
+}
+
+
+#holder{  
+box-sizing: content=box;
+height:87%;    
+width:100%; 
+display: inline-block;
+
+background-color:#F5F5F5;
+/* border:1px solid #A4A4A4; */
+
+}
+#place {
+position:relative;
+margin:5px;
+}
+#place a{
+font-size:0.6em;
+}
+#place li
+{
+ list-style: none outside none;
+ position: absolute;  
+
+}    
+/* 버튼 눌림, hover 효과********************************* */
+ #place li:hover::before{
+ 	width:100%;
+ }
+ #place li::after{
+ 	position: absolute;
+ 	right:0px;
+ 	top:0px;
+ 	z-index:-1;
+ 	width:0%
+ 	height:1px;
+ 	
+ 	-webkit -transition: all 0.4s cubic-bezeir(.5,.24,0,1);
+ 	transition: all 0.4s cubic-beizer(.5,.24,0,1)
+ }
+#place li:hover::after{
+	width:100%
+}
+#place li:hover{	
+	border-top: 2px solid #F6F6F6;	
+}
+/* *************************************hover 효과 */
+
+#place .seat{
+background:url('images/check.png') no-repeat scroll 0 0 transparent;
+height:20px;
+width:20px;
+display:inline-block;
+   
+}
+
+#place .VIP
+{
+background-image:url('images/question.png');
+height:20px;
+width:20px;
+display:inline-block;
+
+}
+#place .R
+{
+background-image:url('images/plus.png');
+
+}
+#place  .S
+{
+background-image:url('images/check.png');
+}
+/*등급별 좌석 이미지 css가 select관련 css보다 먼저나와야, 클릭 시 이벤트 function(toggle과 select 타입별 이미지로 전환)이 정상 작동한다. */
+#place .selectedSeat
+{ 
+background-image:url('images/close.png');          
+}
+
+#place .selectingSeat{
+	background-image:url('images/select.png'); 
+}
+
+#place .disableSeat{
+background-image:url('images/block.png');
+}
+
+
+#seatDescription li{
+font-family: 'S-CoreDream-3Light'; 
+font-size: 10px;
+verticle-align:middle;    
+list-style: none outside none;
+padding-left:20px;
+float:left;
+padding-bottom: 10px;
+}
