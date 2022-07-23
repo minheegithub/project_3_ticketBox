@@ -1,4 +1,4 @@
-package FrontController.ticket.board;
+package com.ticket.board;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

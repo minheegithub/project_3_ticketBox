@@ -1,4 +1,4 @@
-package FrontController.ticket.board;
+package com.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,14 +15,14 @@ import boardDAO.BoardDAO;
 /**
  * Servlet implementation class DeletePwd
  */
-@WebServlet("/board/ModifyPwd")
-public class ModifyPwd extends HttpServlet {
+@WebServlet("/board/DeletePwd")
+public class DeletePwd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModifyPwd() {
+    public DeletePwd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -61,10 +61,9 @@ public class ModifyPwd extends HttpServlet {
 		if(cnt == 0) {
 			kaja = "return.jsp";
 		}else {
-			/*	kaja = "findpwdModify.jsp";
-			request.setAttribute("aid", aid);*/
-			kaja = "ModifyView?aid="+aid;
-		}			
+			kaja = "findpwdDelete.jsp";
+			request.setAttribute("aid", aid);
+		}
 		
 		RequestDispatcher rd1 = request.getRequestDispatcher(kaja);
 		rd1.forward(request, response);
