@@ -44,8 +44,6 @@ public class BoardModify extends HttpServlet {
 		
 		BoardDAO board = null;
 		
-		
-		String dbsubject = request.getParameter("subject");
 		String aid = request.getParameter("aid");
 		String dbmemo = request.getParameter("content");
 		String jumsoo = request.getParameter("jumsoo");
@@ -57,7 +55,8 @@ public class BoardModify extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		Boolean b =board.modify_board(dbsubject, aid, dbmemo, jumsoo);
+		
+		Boolean b =board.modify_board(aid, dbmemo, jumsoo);
 	
 		String gogo = null;
 		if(b) {

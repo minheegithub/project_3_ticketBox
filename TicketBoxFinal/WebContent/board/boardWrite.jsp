@@ -22,18 +22,12 @@
 function send_check(){
 	var f = document.f;	
 	
-	if( f.subject.value.trim() == '' ){
-		alert("제목을 입력해야 합니다");
+	if( f.subject.value == '선택안함' ){
+		alert("작품명을 선택해주세요");
 		f.subject.focus();
 		return;
 	}
-	
-	if( f.name.value.trim() == '' ){
-		alert("작성자를 입력해야 합니다");
-		f.name.focus();
-		return;
-	}
-	
+
 	if( f.content.value.trim() == '' ){
 		alert("내용을 입력해야 합니다");
 		f.content.focus();
@@ -42,7 +36,6 @@ function send_check(){
 	
 	if( f.jumsoo.value != "1" && f.jumsoo.value != "2" && f.jumsoo.value != "3" && f.jumsoo.value != "4" && f.jumsoo.value != "5"){
 		alert("1점부터 5점까지 작품의 점수를 선택해 주세요");
-		
 		return;
 	}
 
@@ -75,11 +68,14 @@ function fn_onload(){
 						 <caption>생생하고 솔직한 후기 작성 </caption>
 						<input name="pwd" type="hidden" value="${sessionScope.pw}">
 						<tr>
-							
 							<th width="120" height="25" style="border-right:1px solid #ccc;">작품명</th>
 							<td colspan="3">
-								<input name="subject" style="width:470px" maxlength="40" required class="input">
-						
+								<select name="subject" >
+						            <option value="선택안함">-------작품명을 선택하세요-------</option>
+						            <c:forEach var="list" items="${performList}">
+						            	<option value="${list}">${list}</option>
+						          	</c:forEach>
+					       		 </select> 
 							</td>
 						</tr>
 						<tr>
@@ -93,13 +89,6 @@ function fn_onload(){
 						 <tr>
 							<th width="120" height="25" style="border-right:1px solid #ccc;">평점</th>
 							<td colspan="3" style="padding-left:7px;">
-								<!-- <select name="jumsoo" id="makeStar">
-					            <option value="1">1</option>
-					            <option value="2">2</option>
-					            <option value="3">3</option>
-					            <option value="4">4</option>
-					            <option value="5">5</option>
-					       		 </select>점 -->
 					       		 <input type="radio" name = "jumsoo" value="1">1점 &nbsp;
 					       		 <input type="radio" name = "jumsoo" value="2">2점 &nbsp;
 					       		 <input type="radio" name = "jumsoo" value="3">3점 &nbsp;

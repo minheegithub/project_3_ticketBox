@@ -52,37 +52,33 @@ public class BoardList extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		 String gogo = null;
-		 String str_c_page = request.getParameter( "str_c_page" );  		
-		 if( str_c_page == null ) 
-				str_c_page = "1";
-		 int c_page = Integer.parseInt( str_c_page );//넘길값
+		String gogo = null;
+		String str_c_page = request.getParameter( "str_c_page" );  		
+		if( str_c_page == null ) 
+			str_c_page = "1";
+		int c_page = Integer.parseInt( str_c_page );//넘길값
 		 
-		 String dbsearch = request.getParameter( "dbsearch" );
-		 if( dbsearch == null || dbsearch.trim( ).length( ) == 0 ) {
-				dbsearch = "%";
-		 }
+		String dbsearch = request.getParameter( "dbsearch" );
+		if( dbsearch == null || dbsearch.trim( ).length( ) == 0 ) {
+			dbsearch = "%";
+		}
 		 	 
-		 BoardDAO dao = null;
+		BoardDAO dao = null;
 		 
-		 try {
-			 dao = new BoardDAO();
-		 } catch (ClassNotFoundException | SQLException e) {
-			 // TODO Auto-generated catch block
-			 e.printStackTrace();
-		 }
+		try {
+			dao = new BoardDAO();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 		 
-		 int total_cnt =dao.getTotalCnt(dbsearch);
-		 	 
-		 int list_num = 10;
-		 int start = 0;
+		int total_cnt =dao.getTotalCnt(dbsearch);
+		int list_num = 10;
+		int start = 0;
 	
-		 start = total_cnt - ( c_page - 1 ) * list_num;
+		start = total_cnt - ( c_page - 1 ) * list_num;
 		 
-		 ArrayList<ListVO> allist = null;
-		 		 
+		ArrayList<ListVO> allist = null;
 		allist = dao.getAllList(dbsearch, start, list_num);
-		
 		
 		request.setAttribute("allist", allist);
 		request.setAttribute("total_cnt", total_cnt);

@@ -33,7 +33,6 @@ public class ModifyView extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		String aid  = request.getParameter("aid");
 		System.out.println(aid);
 				
@@ -51,7 +50,6 @@ public class ModifyView extends HttpServlet {
 		ViewVO v = dao.contentView(aid);
 		
 		request.setAttribute("view", v);
-		
 		
 		RequestDispatcher dispat = request.getRequestDispatcher("boardModify.jsp");
 		dispat.forward(request, response);

@@ -4,14 +4,17 @@ create table board(
     aid number(10) primary key not null,
     rid number(10),
     pwd varchar2(50),
-    dbsubject varchar2(50),
-    dbname varchar2(50),
+    dbsubject varchar2(50)
+        CONSTRAINT board_dbsubject_fk REFERENCES performance(p_name),
+    dbname varchar2(50) 
+        CONSTRAINT board_dbname_fk REFERENCES member(id),
     dbdate date default sysdate,
     dbhits number(10),
     dbmemo varchar2(500),
     jumsoo varchar2(10)
 );
-commit;
+
+
 select * from board;
 -------------------------------------------[회원정보]----------------------
 drop table member;
@@ -31,10 +34,11 @@ create table performance(
     cast varchar2(50),
     p_desc varchar2(50)
 );
-commit;
+
 insert into performance values('마리앙뚜아네트','김주연,이조연,박조연','image/url');
 insert into performance values('헤드윅','최주연, 강조연,서조연','image/url');
 insert into performance values('모차르트','정주연, 나조연, 문조연','image/url');
+commit;
 select * from performance;
 ---------------------------------------------[공연 회차 정보]-------------------
 create table performance_each(
