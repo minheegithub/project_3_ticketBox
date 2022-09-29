@@ -1,4 +1,4 @@
-package com.ticket.board;
+package FrontController.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,6 +44,8 @@ public class BoardModify extends HttpServlet {
 		
 		BoardDAO board = null;
 		
+		
+		String dbsubject = request.getParameter("subject");
 		String aid = request.getParameter("aid");
 		String dbmemo = request.getParameter("content");
 		String jumsoo = request.getParameter("jumsoo");
@@ -55,8 +57,7 @@ public class BoardModify extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		Boolean b =board.modify_board(aid, dbmemo, jumsoo);
+		Boolean b =board.modify_board(dbsubject, aid, dbmemo, jumsoo);
 	
 		String gogo = null;
 		if(b) {

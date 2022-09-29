@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +10,13 @@
 <script language="javascript">
 function send_check(){
 	var f = document.f;	
+	
+	if( f.subject.value.trim() == '' ){
+		alert("제목을 입력해야 합니다");
+		f.subject.focus();
+		return;
+	}
+
 	
 	if( f.content.value.trim() == '' ){
 		alert("내용을 입력해야 합니다");
@@ -50,7 +57,7 @@ function fn_onload(){
 								<tr>
 									<th width="120" height="25" style="border-right:1px solid #ccc;">작품명</th>
 									<td colspan="3">
-								 	 &nbsp;&nbsp;${view.subject} 
+										<input name="subject" style="width:470px" value="${view.subject}" required class="input">
 									</td>
 								</tr>
 							 	<tr>
@@ -71,6 +78,13 @@ function fn_onload(){
 								<tr>
 								<th width="120" height="25" style="border-right:1px solid #ccc;">평점</th>
 								<td colspan="3" style="padding-left:7px;">
+									<!-- <select name="jumsoo" id="makeStar">
+						            <option value="1">1</option>
+						            <option value="2">2</option>
+						            <option value="3">3</option>
+						            <option value="4">4</option>
+						            <option value="5">5</option>
+						       		 </select>점 -->
 						       		 <input type="radio" name = "jumsoo" value="1">1점 &nbsp;
 						       		 <input type="radio" name = "jumsoo" value="2">2점 &nbsp;
 						       		 <input type="radio" name = "jumsoo" value="3">3점 &nbsp;
@@ -79,13 +93,9 @@ function fn_onload(){
 								</td>
 							</tr> 
 							<tr>
-								<th width="120" height="25" style="border-right:1px solid #ccc;">
-								
-								<!-- 내용 -->
-								<img src="../image/hedwig.jpg" alt="이미지대체 텍스트" width="">
-								</th>
+								<th width="120" height="25" style="border-right:1px solid #ccc;">내용</th>
 								<td colspan="3">
-									<textarea name="content" rows="9" cols="80">${view.content}</textarea>
+									<textarea name="content" rows="9" cols="70">${view.content}</textarea>
 								</td>
 							</tr>	
 							</table>

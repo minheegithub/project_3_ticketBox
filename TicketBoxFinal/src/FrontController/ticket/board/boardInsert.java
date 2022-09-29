@@ -1,4 +1,4 @@
-package com.ticket.board;
+package FrontController.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,12 +44,15 @@ public class boardInsert extends HttpServlet {
 		
 		BoardDAO board = null;
 		
+		
 		String dbsubject = request.getParameter("subject");
 		String password = request.getParameter("pwd");
 		String dbname = request.getParameter("name");
 		String dbmemo = request.getParameter("content");
 		String jumsoo = request.getParameter("jumsoo");
 	
+		
+		
 		try {
 			board = new BoardDAO();
 		} catch (ClassNotFoundException e) {
@@ -57,7 +60,6 @@ public class boardInsert extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		Boolean b =board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
 		String gogo = null;
 		if(b) {//세션을 새로 주는 것인가?

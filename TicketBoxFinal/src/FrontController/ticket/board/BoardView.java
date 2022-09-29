@@ -1,4 +1,4 @@
-package com.ticket.board;
+package FrontController.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,16 +14,16 @@ import boardDAO.BoardDAO;
 import boardVO.ViewVO;
 
 /**
- * Servlet implementation class ModifyView
+ * Servlet implementation class BoardView
  */
-@WebServlet("/board/ModifyView")
-public class ModifyView extends HttpServlet {
+@WebServlet("/board/BoardView")
+public class BoardView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModifyView() {
+    public BoardView() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +33,8 @@ public class ModifyView extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String aid  = request.getParameter("aid");
-		System.out.println(aid);
-				
+		String str_aid=request.getParameter("str_aid");//?현재 글번호 추정
+		
 		BoardDAO dao = null;
 		try {
 			dao = new BoardDAO();
@@ -47,12 +46,16 @@ public class ModifyView extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		ViewVO v = dao.contentView(aid);
+		ViewVO v = dao.contentView(str_aid);
 		
 		request.setAttribute("view", v);
 		
-		RequestDispatcher dispat = request.getRequestDispatcher("boardModify.jsp");
+		
+		RequestDispatcher dispat = request.getRequestDispatcher("boardView.jsp");
 		dispat.forward(request, response);
+		
+		
+		
 	}
 
 	/**
@@ -62,5 +65,7 @@ public class ModifyView extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
 
 }

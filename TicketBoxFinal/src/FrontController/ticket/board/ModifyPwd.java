@@ -1,4 +1,4 @@
-package com.ticket.board;
+package FrontController.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;

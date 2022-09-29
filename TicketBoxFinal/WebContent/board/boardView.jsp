@@ -108,12 +108,9 @@
 					</tr>
 					<tr>
 						<td style="height:200px; vertical-align:top; border-right:1px solid #ccc;">
-							<!-- <b>내용 </b> -->
-							 <img src="../image/hedwig.jpg" alt="이미지대체 텍스트" width="">
-							
+							<b>내용 </b>
 						</td>
-						<td width=350 style="vertical-align:top;">
-						${view.content}</td>
+						<td width=350 style="vertical-align:top;">${view.content}</td>
 					</tr>
 				</table>
 			 

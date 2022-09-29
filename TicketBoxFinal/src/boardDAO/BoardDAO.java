@@ -1,7 +1,6 @@
 package boardDAO;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -51,6 +50,7 @@ public class BoardDAO {
 			pstmt.setString(3, password);
 			pstmt.setString(4, dbsubject);
 			pstmt.setString(5, dbname);
+
 			pstmt.setInt(6,0);//////// 문자그대로 넣기
 			pstmt.setString(7, dbmemo);
 			pstmt.setString(8, jumsoo);
@@ -75,6 +75,7 @@ public class BoardDAO {
 	}
 	//str_aid현재 페이지
 	public ViewVO contentView(String str_aid){
+//		ArrayList<ViewVO> array=new ArrayList<ViewVO>();
 		ViewVO v = null;
 		int hits=0;
 		int aid1 = 0;
@@ -134,6 +135,7 @@ public class BoardDAO {
 			cnt = rs.getInt(1);
 			
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {	
 			try {
@@ -153,25 +155,27 @@ public class BoardDAO {
 	public boolean boardDelete(String str_aid) {
 		
 		String sql = "delete from board where aid="+str_aid;
-	
-		try {
-			stmt = con.createStatement();
-			stmt.executeUpdate(sql);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("delete Exception");
-			return false;
-		} finally {	
+		
+		
 			try {
-				if(con != null)con.close();
-				if(stmt != null) stmt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+				stmt = con.createStatement();
+				stmt.executeUpdate(sql);
 	
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("delete Exception");
+				return false;
+			} finally {	
+				try {
+					if(con != null)con.close();
+					if(stmt != null) stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+
+		
 		return true;
 	}
 	
@@ -183,6 +187,7 @@ public class BoardDAO {
 		String sql="select aid, dbname, dbsubject, dbmemo, dbhits, jumsoo from board where aid= ? ";
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setInt(1, aid1);	
 			rs=pstmt.executeQuery();
 			
@@ -194,6 +199,7 @@ public class BoardDAO {
 				int dbhits = rs.getInt(5);
 				String jumsoo= rs.getString(6);
 				v=new ViewVO(aid, dbname, dbsubject, dbmemo, dbhits,jumsoo);
+				
 			}//while-end
 			
 		} catch (SQLException e) {
@@ -212,16 +218,17 @@ public class BoardDAO {
 		return v;
 	}
 	
-	public boolean modify_board(String aid, String dbmemo,String jumsoo) {
+	public boolean modify_board(String dbsubject, String aid, String dbmemo,String jumsoo) {
 		
 		int aid1 = Integer.parseInt(aid);
-		String sql = "update board set dbmemo = ?, jumsoo = ? where aid = ?";
+		String sql = "update board set dbsubject=?, dbmemo = ?, jumsoo = ? where aid = ?";
 		try {
 				
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, dbmemo);
-			pstmt.setString(2, jumsoo);
-			pstmt.setInt(3, aid1);
+			pstmt.setString(1, dbsubject);
+			pstmt.setString(2, dbmemo);
+			pstmt.setString(3, jumsoo);
+			pstmt.setInt(4, aid1);
 
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -261,28 +268,6 @@ public class BoardDAO {
 		return total_cnt;
 	}
 	
-	//공연 명단 가져오기
-	public ArrayList<String> getPerformanceList(){
-		
-		ArrayList<String> performList = new ArrayList<String>();
-		
-		String sql = "select p_name from performance";
-
-		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			while(rs.next()) {
-				performList.add(rs.getString(1));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-		return performList;
-	}
-	
 	public ArrayList<ListVO> getAllList(String dbsearch, int start,  int list_num){
 		
 		ArrayList<ListVO> array = new ArrayList<>();
@@ -290,6 +275,7 @@ public class BoardDAO {
 		try{
 		
 			String sql_c = "";
+
 //			sql_c +=	 "select aid, dbname, dbsubject, to_char( dbdate, 'yyyy/mm/dd hh:mi:ss' ), dbhits, dbmemo from ( ";
 //			sql_c +=	 "select aid, dbname, dbsubject, to_char( dbdate, 'yyyy-mm-dd' ), dbhits, dbmemo from ( ";
 			sql_c +=	 "select aid, dbname, dbsubject, dbdate, dbhits, dbmemo from ( ";
