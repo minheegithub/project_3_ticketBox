@@ -45,7 +45,7 @@
 				</table>
 				<table width=700 >
 					<tr>
-						<td><input type=button value="글쓰기" OnClick="window.location='boardWrite.jsp'" class="btn" style="font-size:12px;"></td>
+						<td><input type=button value="글쓰기" OnClick="window.location='BoardWrite'" class="btn" style="font-size:12px;"></td>
 						<td>
 							<form name=searchf method=post action="BoardList">
 				   				<p align=right>
@@ -59,7 +59,7 @@
 				<table  class="board_list"  width=700 style="font-size:12px;margin-top:7px;" >
 						<tr>
 							<th width=60><p align=center>번호</p></th>
-							<th width=380><p align=center>제목</p></th>
+							<th width=380><p align=center>작품명</p></th>
 							<th width=90><p align=center>작성자</p></th>
 							<th width=100><p align=center>등록일</p></th>
 							<th width=60><p align=center>조회수</p></th>

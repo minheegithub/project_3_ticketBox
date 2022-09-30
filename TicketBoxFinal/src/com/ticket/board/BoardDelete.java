@@ -1,4 +1,4 @@
-package FrontController.ticket.board;
+package com.ticket.board;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -34,7 +34,6 @@ public class BoardDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String str_aid = request.getParameter("aid");
-		/*System.out.println("삭제하러가자"+aid);*/
 		
 		BoardDAO dao = null;
 		
@@ -55,12 +54,7 @@ public class BoardDelete extends HttpServlet {
 		
 		RequestDispatcher rd1 = request.getRequestDispatcher("BoardList");
 		rd1.forward(request, response);
-		
-		
-		
-		
-		
-		
+	
 	}
 
 	/**
