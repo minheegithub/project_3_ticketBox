@@ -136,11 +136,12 @@
              alert("비밀번호를 동일하게 입력하세요.");
              return false;
          }
-         var pw = document.getElementById('userpass').value;
+
+         var pw = document.getElementById('pw').value;
          if(!/^[a-zA-Z0-9]{8,20}$/.test(pw)){
              alert("비밀번호는 숫자와 영문자 조합으로 8~20자리를 사용해야 합니다.");
              return false;
-         }
+         } 
 		 
 	 }
 		

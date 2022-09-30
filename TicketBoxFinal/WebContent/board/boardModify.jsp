@@ -80,9 +80,7 @@ function fn_onload(){
 							</tr> 
 							<tr>
 								<th width="120" height="25" style="border-right:1px solid #ccc;">
-								
-								<!-- 내용 -->
-								<img src="../image/hedwig.jpg" alt="이미지대체 텍스트" width="">
+									<img src="../image/${image_name}" alt="이미지대체 텍스트">
 								</th>
 								<td colspan="3">
 									<textarea name="content" rows="9" cols="80">${view.content}</textarea>

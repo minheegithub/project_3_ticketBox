@@ -58,13 +58,11 @@ public class boardInsert extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		Boolean b =board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
+		Boolean b = board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
 		String gogo = null;
-		if(b) {//세션을 새로 주는 것인가?
-			/*request.setAttribute("result1", "입력완료");*/
+		if(b) {
 			gogo = "result.jsp";
 		}else {
-			/*request.setAttribute("result1", "입력오류");*/
 			gogo = "BoardList";
 		}
 		

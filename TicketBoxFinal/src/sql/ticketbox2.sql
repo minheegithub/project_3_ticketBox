@@ -32,6 +32,18 @@ email varchar2(50)
 create table performance(
     p_name varchar2(30) constraint p_name_pk primary key,
     cast varchar2(50),
+    p_desc varchar2(50),
+    image_name varchar2(50)
+);
+
+insert into performance values('마리앙뚜아네트','김주연,이조연,박조연','image/url','mari.jpg');
+insert into performance values('헤드윅','최주연, 강조연,서조연','image/url','hedwig.jpg');
+insert into performance values('모차르트','정주연, 나조연, 문조연','image/url','mozart.jpg');
+commit;
+
+create table performance(
+    p_name varchar2(30) constraint p_name_pk primary key,
+    cast varchar2(50),
     p_desc varchar2(50)
 );
 

@@ -106,15 +106,15 @@ public class BoardDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {	
-				try {
-					if(pstmt != null)pstmt.close();
-					if(rs != null) rs.close();
-					if(stmt != null) stmt.close();
-					if(con != null)con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
+//				try {
+//					if(pstmt != null)pstmt.close();
+//					if(rs != null) rs.close();
+//					if(stmt != null) stmt.close();
+//					if(con != null)con.close();
+//				} catch (SQLException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} 
 		}
 		return v;
 	}
@@ -174,8 +174,6 @@ public class BoardDAO {
 	
 		return true;
 	}
-	
-	
 	
 	public ViewVO modifyView(String str_aid){
 		ViewVO v = null;
@@ -281,6 +279,25 @@ public class BoardDAO {
 		} 
 		
 		return performList;
+	}
+	
+	//공연 이미지 이름 가져오기
+	public String getImageName(String p_name) {
+		String image_name = "";
+		String sql = "select image_name from performance where p_name = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, p_name);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				image_name = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return image_name;
 	}
 	
 	public ArrayList<ListVO> getAllList(String dbsearch, int start,  int list_num){

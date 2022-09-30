@@ -48,7 +48,10 @@ public class ModifyView extends HttpServlet {
 		}
 		
 		ViewVO v = dao.contentView(aid);
+		String p_name = v.getSubject();//작품명 가져오기
+		String image_name = dao.getImageName(p_name);
 		
+		request.setAttribute("image_name", image_name);
 		request.setAttribute("view", v);
 		
 		RequestDispatcher dispat = request.getRequestDispatcher("boardModify.jsp");

@@ -12,10 +12,7 @@ public class ListVO {
 	private String hits;
 	private String content;
 	
-	
-	
 	public ListVO(String aid, String name, String subject, Timestamp date, String hits, String content) {
-		
 		this.aid = aid;
 		this.name = name;
 		this.subject = subject;
@@ -61,16 +58,5 @@ public class ListVO {
 		this.content = content;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

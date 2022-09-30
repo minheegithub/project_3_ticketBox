@@ -47,9 +47,11 @@ public class BoardView extends HttpServlet {
 		}
 		
 		ViewVO v = dao.contentView(str_aid);
+		String p_name = v.getSubject();//작품명 가져오기
+		String image_name = dao.getImageName(p_name);//이미지 이름 가져오기
 		
+		request.setAttribute("image_name", image_name);
 		request.setAttribute("view", v);
-		
 		
 		RequestDispatcher dispat = request.getRequestDispatcher("boardView.jsp");
 		dispat.forward(request, response);
