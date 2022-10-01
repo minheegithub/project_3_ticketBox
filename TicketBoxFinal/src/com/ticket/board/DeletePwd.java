@@ -60,8 +60,9 @@ public class DeletePwd extends HttpServlet {
 		String kaja = null;
 		if(cnt == 0) {
 			kaja = "return.jsp";
+			request.setAttribute("aid", aid);
 		}else {
-			kaja = "findpwdDelete.jsp";
+			kaja = "findpwdDelete.jsp";//게시글을 삭제합니다. alert창이 나온다.
 			request.setAttribute("aid", aid);
 		}
 		

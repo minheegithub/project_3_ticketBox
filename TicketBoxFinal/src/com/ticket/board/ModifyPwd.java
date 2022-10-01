@@ -1,6 +1,7 @@
 package com.ticket.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import boardDAO.BoardDAO;
+import boardVO.ViewVO;
 
 /**
  * Servlet implementation class DeletePwd
@@ -56,13 +58,17 @@ public class ModifyPwd extends HttpServlet {
 		}
 		
 		int cnt = dao.findPwd(aid, pwd);
+		
+//		ViewVO vo = dao.contentView(aid);
 		//result 일치는 1, 비일치는 0
 		String kaja = null;
+		
 		if(cnt == 0) {
 			kaja = "return.jsp";
+	 
+//			kaja = "boardView.jsp";
+			request.setAttribute("aid", aid);
 		}else {
-			/*	kaja = "findpwdModify.jsp";
-			request.setAttribute("aid", aid);*/
 			kaja = "ModifyView?aid="+aid;
 		}			
 		

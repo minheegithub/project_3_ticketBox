@@ -7,8 +7,32 @@
 <html>
 <head>
 <title>목록</title>
-<link rel="stylesheet" href="../css/boardList.css">
+<link rel="stylesheet" href="../css/boardList.css"> 
+<script src="../js/jquery-1.7.2.min.js"></script> 
+<!--awesome icons--> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/69851f8880.js" crossorigin="anonymous"></script>
 </head>
+<script>
+	$(function() {
+		/*.rating마다 할 일*/
+		var rating = $('.review .rating');
+		/*each:각각이 할 일*/
+		rating.each(function() {
+			/*$(this):<div class="rating" data-rate="3">*/
+			/*attr로 속성에 접근해서 메서드 가져오기*/
+			var targetScore = $(this).attr('data-rate');
+			console.log(targetScore);
+			$(this).find(' i:nth-child(-n+ ' + targetScore + ')').css({
+				color : 'rgb(252, 190, 52)'
+			});
+			/*
+			    -n+'3' 이 숫자는 targetScore로 받아오고, 
+			    숫자 앞까지는 전부 문자열 처리해줌
+			 */
+		})
+	})
+</script>
 <body>
 
 	    <jsp:include page="../main/mainTop.jsp"></jsp:include>
@@ -59,10 +83,11 @@
 				<table  class="board_list"  width=700 style="font-size:12px;margin-top:7px;" >
 						<tr>
 							<th width=60><p align=center>번호</p></th>
-							<th width=380><p align=center>작품명</p></th>
+							<th width=200><p align=center>작품명</p></th>
+							<th width=160><p align=center>평점</p></th>
 							<th width=90><p align=center>작성자</p></th>
 							<th width=100><p align=center>등록일</p></th>
-							<th width=60><p align=center>조회수</p></th>
+							<th width=80><p align=center>조회수</p></th>
 						</tr>
 
 					<c:forEach var="vo" items="${allist}">
@@ -84,7 +109,20 @@
 								<c:if test="${strDate - writeDate < 24}">
 								   <!-- <span style="color:#F15F5F;font-size:12px;">&nbsp;new</span> -->
 								   &nbsp;<span id="new">&nbsp;N&nbsp;</span>
-								</c:if>   
+								</c:if>
+						     </p>
+							</td>
+							<td>	
+								<div class="review">
+							        <div class="rating" data-rate="${vo.jumsoo}">
+							            <i class="fas fa-star"></i>
+							            <i class="fas fa-star"></i>
+							            <i class="fas fa-star"></i>
+							            <i class="fas fa-star"></i>
+							            <i class="fas fa-star"></i> 
+							        </div>
+							     </div>  
+							 </td>
 							<td width=90><p>${vo.name}</p></td>
 							<fmt:formatDate value="${vo.date}" pattern="yyyy-MM-dd" var="writeDay1"/> 
 							<td width=120 ><p>${writeDay1}</p></td>

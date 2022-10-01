@@ -103,7 +103,6 @@
 						            <i class="fas fa-star"></i> 
 						        </div>
 						     </div>  
-        					
        					 </td>
 					</tr>
 					<tr>

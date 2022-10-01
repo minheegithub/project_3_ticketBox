@@ -62,6 +62,7 @@ public class BoardModify extends HttpServlet {
 		if(b) {
 			gogo = "result.jsp";			
 		}else {
+//			gogo = "BoardList";
 			gogo = "BoardList";
 		}
 		

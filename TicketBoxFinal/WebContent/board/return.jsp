@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-</head>
-<body>
+</html>
 <script language=javascript>
 		self.window.alert("비밀번호가 일치하지 않습니다.");
-		location.href="BoardList";
+		location.href="BoardView?str_aid="+${aid};
 </script>
+</head>
+<body>
+
 
 </body>
-</html>

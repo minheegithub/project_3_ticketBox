@@ -299,17 +299,17 @@ public class BoardDAO {
 		}
 		return image_name;
 	}
-	
+
 	public ArrayList<ListVO> getAllList(String dbsearch, int start,  int list_num){
 		
 		ArrayList<ListVO> array = new ArrayList<>();
-
-		try{
 		
+		try{
+			
 			String sql_c = "";
 //			sql_c +=	 "select aid, dbname, dbsubject, to_char( dbdate, 'yyyy/mm/dd hh:mi:ss' ), dbhits, dbmemo from ( ";
 //			sql_c +=	 "select aid, dbname, dbsubject, to_char( dbdate, 'yyyy-mm-dd' ), dbhits, dbmemo from ( ";
-			sql_c +=	 "select aid, dbname, dbsubject, dbdate, dbhits, dbmemo from ( ";
+			sql_c +=	 "select aid, dbname, dbsubject, dbdate, dbhits, dbmemo, jumsoo from ( ";
 			sql_c +=	"	select * from ( ";
 			sql_c +=			"select * from ( ";
 			sql_c +=				"select * from board order by rid asc ) ";
@@ -319,7 +319,7 @@ public class BoardDAO {
 			rs = stmt.executeQuery( sql_c );
 			int title_len = 100;
 			/*int aid = start;*/
-		
+			
 			while( rs.next() ){
 				String aid1 = rs.getString(1);
 				String name = rs.getString(2);
@@ -328,6 +328,8 @@ public class BoardDAO {
 				Timestamp date = rs.getTimestamp(4);
 				String hits = rs.getString(5);
 				StringBuffer buf = new StringBuffer( rs.getString(6) );
+				String jumsoo = rs.getString(7);
+				
 				String content = "";
 				if( buf.length() > title_len ){
 					buf.setLength( title_len ); 
@@ -336,18 +338,18 @@ public class BoardDAO {
 				else {
 					content = buf +"";
 				}
-				ListVO lv = new ListVO(aid1, name, subject, date, hits, content);
+				ListVO lv = new ListVO(aid1, name, subject, date, hits, content, jumsoo);
 				array.add(lv);
 				
 				/*aid--; */
 			}
 			
 		}catch( Exception e ) {
-				System.out.println(e.toString());
+			System.out.println(e.toString());
 		}
-			
+		
 		return array;
-	
+		
 	}
 	
 	
