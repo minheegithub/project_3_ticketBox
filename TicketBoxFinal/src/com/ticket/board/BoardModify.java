@@ -1,6 +1,7 @@
 package com.ticket.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -58,17 +59,11 @@ public class BoardModify extends HttpServlet {
 		
 		Boolean b =board.modify_board(aid, dbmemo, jumsoo);
 	
-		String gogo = null;
-		if(b) {
-//			gogo = "result.jsp";
-			gogo = "modifyResult.jsp";
-			request.setAttribute("str_aid", aid);
-		}else {
-			gogo = "BoardList";
-		}
+		response.setContentType("text/json");
+		PrintWriter pw = response.getWriter();
+		System.out.println("수정수정 :"+b);
+		pw.print(b);
 		
-		RequestDispatcher rd1 = request.getRequestDispatcher(gogo);
-		rd1.forward(request, response);
 	}
 
 }

@@ -22,18 +22,34 @@
 <meta charset="UTF-8">
 <title>게시글 삭제 암호 입력화면 </title>
 <link href="../css/passWrite.css" rel="stylesheet" type="text/css">
-
-	<script language="javascript">
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script>
 		function send_check(){
 			var f = document.f;	
+			var aid = f.aid.value;
 			
-			 if( f.pwd.value.trim() == '' ){
+			if( f.pwd.value.trim() == '' ){
 				alert("비밀번호를 입력해야 합니다");
 				f.pwd.focus();
 				return;
 			} 
-			
-			f.submit();
+			 
+			 $.ajax({
+				url : 'DeletePwd',
+				type : 'POST',
+				data : {
+					pwd : $("#pwd").val(),
+					aid : $("#aid").val(),
+				},
+				success : function(data) {
+					if(data == 0){
+						self.window.alert("비밀번호가 일치하지 않습니다.");
+					}else{
+						self.window.alert("게시글을 삭제합니다.");
+						location.href="BoardDelete?aid="+aid;
+					}
+				},
+			});
 		}
 		
 		function fn_onload(){
@@ -56,8 +72,9 @@
         	</aside>
 			<section>
 				<div id="board">
-				<form name="f" method="post" action="DeletePwd">
-				<input type="hidden" name="aid" value="${param.str_aid}">
+				<form name="f">
+				<input type="hidden" name="aid" value="${param.str_aid}" id="aid">
+				<input type="hidden" name="dbname" value="${param.name}" id="dbname">
 					<table class="board_title">
 						<tr>
 							<td>
@@ -69,7 +86,7 @@
 				 		<tr>
 							<th width="70" height="15"style="border-right:1px solid #ccc;">비밀번호</th> 
 							<td colspan="3">
-								<input name="pwd" type="password"  maxlength="20" required class="input">
+								<input name="pwd" type="password"  maxlength="20" required class="input" id="pwd">
 							</td>
 						</tr> 
 					</table>

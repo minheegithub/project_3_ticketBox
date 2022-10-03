@@ -24,27 +24,11 @@
 <meta charset="UTF-8">
 <title>게시글 수정 암호 입력화면 </title>
 <link href="../css/modifypassWrite.css" rel="stylesheet" type="text/css">
-	<script language="javascript">
-		function send_check(){
-			var f = document.f;	
-			
-			 if( f.pwd.value.trim() == '' ){
-				alert("비밀번호를 입력해야 합니다");
-				f.pwd.focus();
-				return;
-			} 
-			
-			f.submit();
-		}
-		
-		function fn_onload(){
-			document.f.pwd.focus();
-			
-		}
-	</script>
+<script src="../js/jquery-1.7.2.min.js"></script>
+
 
 </head>
-<body onload="fn_onload()">
+<body>
 	
 	    <jsp:include page="../main/mainTop.jsp"></jsp:include>
 	    
@@ -58,8 +42,9 @@
         	</aside>
 				<section>
 			<div id="board">
-					<form name="f" method="post" action="ModifyPwd">
-						<input type="hidden" name="aid" value="${param.str_aid}">
+					<form name="f" method="post" action="ModifyView">
+						<input type="hidden" name="aid" value="${param.str_aid}" id="aid">
+						<input type="hidden" name="dbname" value="${param.name}" id="dbname">
 							<table class="board_title">
 								<tr>
 									<td>
@@ -71,7 +56,7 @@
 						 		<tr>
 									<th width="70" height="15"style="border-right:1px solid #ccc;">비밀번호</th> 
 									<td colspan="3">
-										<input name="pwd" type="password"  maxlength="20" required class="input">
+										<input name="pwd" id="pwd" type="password"  maxlength="20" required class="input">
 									</td>
 								</tr>  
 							</table>
@@ -92,3 +77,33 @@
 				<jsp:include page="../main/mainBottom.jsp"></jsp:include>
 </body>
 </html>
+<script>
+	function send_check(){
+		var f = document.f;	
+		
+		if( f.pwd.value.trim() == '' ){
+			alert("비밀번호를 입력해야 합니다");
+			f.pwd.focus();
+			return;
+		}
+		
+		$.ajax({
+			url : 'ModifyPwd',
+			type : 'POST',
+			data : {
+				pwd : $("#pwd").val(),
+				aid : $("#aid").val()
+			},
+			success : function(data) {
+				if(data == 0){
+					self.window.alert("비밀번호가 일치하지 않습니다.");
+				}else{
+					self.window.alert("비밀번호를 확인하였습니다. 수정창으로 넘어갑니다.");
+					f.submit();
+				}
+			},
+		});
+	}
+	
+
+</script>

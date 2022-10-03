@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>게시판 글쓰기</title>
 <link rel="stylesheet" href="../css/boardModify.css">
-<script language="javascript">
+<script src="../js/jquery-1.7.2.min.js"></script>
+<script>
 function send_check(){
 	var f = document.f;	
 	
@@ -19,11 +20,27 @@ function send_check(){
 	
 	if( f.jumsoo.value != "1" && f.jumsoo.value != "2" && f.jumsoo.value != "3" && f.jumsoo.value != "4" && f.jumsoo.value != "5"){
 		alert("1점부터 5점까지 작품의 점수를 선택해 주세요");
-		
 		return;
 	}
 	
-	f.submit();
+	$.ajax({
+		url : 'BoardModify',
+		type : 'POST',
+		data : {
+			aid : $("#aid").val(),
+			content : $("#content").val(),
+			jumsoo : $('input[name="jumsoo"]:checked').val()
+		},
+		success : function(data) {
+			if(data == true){
+				self.window.alert("입력한 글을 수정하였습니다.");
+				f.submit();
+			}else{
+				self.window.alert("저장실패");
+				return;
+			}
+		},
+ 	});	
 }
 
 function fn_onload(){
@@ -44,7 +61,7 @@ function fn_onload(){
         	</aside>
 			<section>
 				<div id="board">
-					<form name="f" method="post" action="BoardModify">
+					<form name="f" method="get" action="BoardView"> 
 							<table class="update_table">							
 								 <caption>게시글 수정 </caption>
 								<tr>
@@ -57,25 +74,23 @@ function fn_onload(){
 									<th width="120" height="25" style="border-right:1px solid #ccc;">글번호</th>
 									<td colspan="3" style="padding-left:7px;">
 										${view.aid}
-										<input name="aid" type="hidden" style="width:470px" value="${view.aid}" required>
+										<input name="str_aid" type="hidden" style="width:470px" value="${view.aid}" id="aid">
 									</td>
 								</tr>  
 								<tr>
 									<th width="120" height="25" style="border-right:1px solid #ccc;">작성자</th>
 									<td colspan="3" style="padding-left:7px;">
 										${view.name}
-										<input type = "hidden" name="name" style="width:470px" value="${view.name}" >
-										
 									</td>
 								</tr>	
 								<tr>
 								<th width="120" height="25" style="border-right:1px solid #ccc;">평점</th>
 								<td colspan="3" style="padding-left:7px;">
-						       		 <input type="radio" name = "jumsoo" value="1">1점 &nbsp;
-						       		 <input type="radio" name = "jumsoo" value="2">2점 &nbsp;
-						       		 <input type="radio" name = "jumsoo" value="3">3점 &nbsp;
-						       		 <input type="radio" name = "jumsoo" value="4">4점 &nbsp;
-						       		 <input type="radio" name = "jumsoo" value="5">5점 &nbsp;
+						       		 <input type="radio" name="jumsoo" value="1">1점 &nbsp;
+						       		 <input type="radio" name="jumsoo" value="2">2점 &nbsp;
+						       		 <input type="radio" name="jumsoo" value="3">3점 &nbsp;
+						       		 <input type="radio" name="jumsoo" value="4">4점 &nbsp;
+						       		 <input type="radio" name="jumsoo" value="5">5점 &nbsp;
 								</td>
 							</tr> 
 							<tr>
@@ -83,7 +98,7 @@ function fn_onload(){
 									<img src="../image/${image_name}" alt="이미지대체 텍스트">
 								</th>
 								<td colspan="3">
-									<textarea name="content" rows="9" cols="80">${view.content}</textarea>
+									<textarea name="content" rows="9" cols="80" id="content">${view.content}</textarea>
 								</td>
 							</tr>	
 							</table>

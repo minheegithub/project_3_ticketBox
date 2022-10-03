@@ -21,18 +21,6 @@
 %>
 
 
-<script language='javascript'>
- function deletepassWrite()
- {
-  location.href = "deletepassWrite.jsp?str_aid="+${view.aid}+"";
- }
- 
- function modifypassWrite(){
-  location.href = "modifypassWrite.jsp?str_aid="+${view.aid}+"";
-	 
-	 
- }
-</script>
 <script>
 	$(function() {
 		/*.rating마다 할 일*/
@@ -79,10 +67,16 @@
 						<td style="border-right:1px solid #ccc;"><b>글번호</b></td>
 						<td>
 							${view.aid}
+							<input type="hidden" value="${view.aid}" id="aid">
 						</td>  
 					</tr>
 					<tr><td style="border-right:1px solid #ccc;"><b>조회수</b></td><td>${view.hits}</td></tr>
-					<tr><td style="border-right:1px solid #ccc;"><b>이름 </b></td><td>${view.name}</td></tr>
+					<tr>
+						<td style="border-right:1px solid #ccc;"><b>이름 </b></td>
+						<td>${view.name}
+						<input type="hidden" value="${view.name}" id="name">
+						</td>
+					</tr>
 					<tr>
 						<td style="border-right:1px solid #ccc;">
 							<b>제목 </b>
@@ -126,4 +120,14 @@
 	</div>
 	<jsp:include page="../main/mainBottom.jsp"></jsp:include>
 </body>
+
+<script>
+ function deletepassWrite(){
+  	location.href = "deletepassWrite.jsp?str_aid="+${view.aid};
+ }
+ 
+ function modifypassWrite(){
+	 location.href = "modifypassWrite.jsp?str_aid="+${view.aid};
+ }
+</script>
 </html>

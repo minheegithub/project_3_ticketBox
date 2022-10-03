@@ -34,7 +34,6 @@ public class ModifyView extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String aid  = request.getParameter("aid");
-		System.out.println(aid);
 				
 		BoardDAO dao = null;
 		try {

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
+
 import boardDAO.BoardDAO;
 import boardVO.ViewVO;
 
@@ -58,20 +60,10 @@ public class ModifyPwd extends HttpServlet {
 		}
 		
 		int cnt = dao.findPwd(aid, pwd);
-		
-		//result 일치는 1, 비일치는 0
-		String kaja = null;
-		
-		if(cnt == 0) {
-			kaja = "return.jsp";
-			request.setAttribute("aid", aid);
-		}else {
-			kaja = "ModifyView?aid="+aid;
-		}			
-		
-		RequestDispatcher rd1 = request.getRequestDispatcher(kaja);
-		rd1.forward(request, response);
-		
+		response.setContentType("text/json");
+		PrintWriter pw = response.getWriter();
+		pw.print(cnt);
+
 	}
 
 }

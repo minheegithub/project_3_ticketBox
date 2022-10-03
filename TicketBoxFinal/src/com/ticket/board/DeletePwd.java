@@ -1,6 +1,7 @@
 package com.ticket.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -56,18 +57,12 @@ public class DeletePwd extends HttpServlet {
 		}
 		
 		int cnt = dao.findPwd(aid, pwd);
-		//result 일치는 1, 비일치는 0
-		String kaja = null;
-		if(cnt == 0) {
-			kaja = "return.jsp";
-			request.setAttribute("aid", aid);
-		}else {
-			kaja = "deleteResult.jsp";//게시글을 삭제합니다. alert창이 나온다.
-			request.setAttribute("aid", aid);
-		}
+		response.setContentType("text/json");
+		PrintWriter pw = response.getWriter();
 		
-		RequestDispatcher rd1 = request.getRequestDispatcher(kaja);
-		rd1.forward(request, response);
+//		일치는 1, 비일치는 0
+		pw.print(cnt);
+
 		
 	}
 

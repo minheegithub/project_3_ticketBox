@@ -1,6 +1,7 @@
 package com.ticket.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -44,8 +45,8 @@ public class boardInsert extends HttpServlet {
 		
 		BoardDAO board = null;
 		
-		String dbsubject = request.getParameter("subject");
 		String password = request.getParameter("pwd");
+		String dbsubject = request.getParameter("subject");
 		String dbname = request.getParameter("name");
 		String dbmemo = request.getParameter("content");
 		String jumsoo = request.getParameter("jumsoo");
@@ -59,7 +60,16 @@ public class boardInsert extends HttpServlet {
 		}
 		
 		Boolean b = board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
+		
+		response.setContentType("text/json");
+		PrintWriter pw = response.getWriter();
+		System.out.println(b);
+//		
+		pw.print(b);
+		
+		/*
 		String gogo = null;
+		
 		if(b) {
 			gogo = "writeResult.jsp";
 		}else {
@@ -67,7 +77,7 @@ public class boardInsert extends HttpServlet {
 		}
 		
 		RequestDispatcher rd1 = request.getRequestDispatcher("BoardList");
-		rd1.forward(request, response);
+		rd1.forward(request, response);*/
 	}
 
 }
