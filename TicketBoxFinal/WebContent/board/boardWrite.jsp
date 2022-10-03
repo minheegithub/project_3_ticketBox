@@ -28,17 +28,17 @@ function send_check(){
 		return;
 	}
 
+	if( f.jumsoo.value != "1" && f.jumsoo.value != "2" && f.jumsoo.value != "3" && f.jumsoo.value != "4" && f.jumsoo.value != "5"){
+		alert("1점부터 5점까지 작품의 점수를 선택해 주세요");
+		return;
+	}
+	
 	if( f.content.value.trim() == '' ){
 		alert("내용을 입력해야 합니다");
 		f.content.focus();
 		return;
 	}
 	
-	if( f.jumsoo.value != "1" && f.jumsoo.value != "2" && f.jumsoo.value != "3" && f.jumsoo.value != "4" && f.jumsoo.value != "5"){
-		alert("1점부터 5점까지 작품의 점수를 선택해 주세요");
-		return;
-	}
-
 	f.submit();
 }
 

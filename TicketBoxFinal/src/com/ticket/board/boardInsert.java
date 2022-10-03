@@ -61,7 +61,7 @@ public class boardInsert extends HttpServlet {
 		Boolean b = board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
 		String gogo = null;
 		if(b) {
-			gogo = "result.jsp";
+			gogo = "writeResult.jsp";
 		}else {
 			gogo = "BoardList";
 		}

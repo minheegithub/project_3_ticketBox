@@ -60,9 +60,10 @@ public class BoardModify extends HttpServlet {
 	
 		String gogo = null;
 		if(b) {
-			gogo = "result.jsp";			
+//			gogo = "result.jsp";
+			gogo = "modifyResult.jsp";
+			request.setAttribute("str_aid", aid);
 		}else {
-//			gogo = "BoardList";
 			gogo = "BoardList";
 		}
 		

@@ -22,9 +22,9 @@
 
 
 <script language='javascript'>
- function passWrite()
+ function deletepassWrite()
  {
-  location.href = "passWrite.jsp?str_aid="+${view.aid}+"";
+  location.href = "deletepassWrite.jsp?str_aid="+${view.aid}+"";
  }
  
  function modifypassWrite(){
@@ -118,7 +118,7 @@
 					<tr><td>
 						<input type=button value="목록" OnClick="window.location='BoardList'" class="btn">
 						<input type=button value="수정" OnClick="javascript:modifypassWrite();" class="btn">
-						<input type=button value="삭제" OnClick="javascript:passWrite();" class="btn">
+						<input type=button value="삭제" OnClick="javascript:deletepassWrite();" class="btn">
 					</td></tr>
 				</table>
 			</div>

@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${result1}<br>
-<script language=javascript>
+<script>
 		self.window.alert("입력한 글을 저장하였습니다.");
 		location.href="BoardList";
 </script>

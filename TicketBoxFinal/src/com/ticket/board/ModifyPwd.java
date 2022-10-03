@@ -59,14 +59,11 @@ public class ModifyPwd extends HttpServlet {
 		
 		int cnt = dao.findPwd(aid, pwd);
 		
-//		ViewVO vo = dao.contentView(aid);
 		//result 일치는 1, 비일치는 0
 		String kaja = null;
 		
 		if(cnt == 0) {
 			kaja = "return.jsp";
-	 
-//			kaja = "boardView.jsp";
 			request.setAttribute("aid", aid);
 		}else {
 			kaja = "ModifyView?aid="+aid;
