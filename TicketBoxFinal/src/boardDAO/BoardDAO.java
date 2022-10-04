@@ -105,28 +105,19 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {	
-//				try {
-//					if(pstmt != null)pstmt.close();
-//					if(rs != null) rs.close();
-//					if(stmt != null) stmt.close();
-//					if(con != null)con.close();
-//				} catch (SQLException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} 
 		}
 		return v;
 	}
 	//result 일치는 1, 비일치는 0
-	public int findPwd(String aid, String pwd) {
+	public int findPwd(String aid, String pwd, String dbname) {
 		
-		String sql = "select count(*) from board where aid = ? and pwd = ?";
+		String sql = "select count(*) from board where aid = ? and pwd = ? and dbname = ?";
 		int cnt = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, aid);
 			pstmt.setString(2, pwd);
+			pstmt.setString(3, dbname);
 			rs = pstmt.executeQuery();
 			
 			rs.next();

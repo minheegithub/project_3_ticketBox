@@ -101,13 +101,9 @@
 								<fmt:formatDate value="${toDay}" pattern="yyyy-MM-dd HH" var="today" />  
 								<fmt:parseDate value="${today}" pattern="yyyy-MM-dd HH" var="today1" /> 
 							 	<fmt:parseNumber value="${today1.time/(1000*60*60)}" integerOnly="true" var="strDate"></fmt:parseNumber>
-							 	<%-- ${strDate}- --%>
 								<fmt:parseDate value="${vo.date}" pattern="yyyy-MM-dd HH" var="writeDay" /> 
 								<fmt:parseNumber value="${writeDay.time/(1000*60*60)}" integerOnly="true" var="writeDate"></fmt:parseNumber> 
-								<%-- ${writeDate}
-								=${strDate - writeDate}   --%>
 								<c:if test="${strDate - writeDate < 24}">
-								   <!-- <span style="color:#F15F5F;font-size:12px;">&nbsp;new</span> -->
 								   &nbsp;<span id="new">&nbsp;N&nbsp;</span>
 								</c:if>
 						     </p>

@@ -61,7 +61,6 @@ public class BoardModify extends HttpServlet {
 	
 		response.setContentType("text/json");
 		PrintWriter pw = response.getWriter();
-		System.out.println("수정수정 :"+b);
 		pw.print(b);
 		
 	}

@@ -47,6 +47,7 @@ public class ModifyPwd extends HttpServlet {
 		
 		String pwd = request.getParameter("pwd");
 		String aid = request.getParameter("aid");
+		String dbname = request.getParameter("dbname");
 		
 		BoardDAO dao = null;
 		try {
@@ -59,7 +60,7 @@ public class ModifyPwd extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		int cnt = dao.findPwd(aid, pwd);
+		int cnt = dao.findPwd(aid, pwd, dbname);
 		response.setContentType("text/json");
 		PrintWriter pw = response.getWriter();
 		pw.print(cnt);

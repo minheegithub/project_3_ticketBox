@@ -6,11 +6,6 @@
 	String aid= request.getParameter("str_aid");
 	if(aid == null || aid.equals("")){
 %>
-<!-- 	<script>
-		alert("잘못된 경로로의 접근");
-		location="pboard_list.jsp";
-	</script> -->
-
 
 <% 		
 	return;
@@ -44,7 +39,7 @@
 			<div id="board">
 					<form name="f" method="post" action="ModifyView">
 						<input type="hidden" name="aid" value="${param.str_aid}" id="aid">
-						<input type="hidden" name="dbname" value="${param.name}" id="dbname">
+						<input type="hidden" name="dbname" value="${sessionScope.id}" id="dbname">
 							<table class="board_title">
 								<tr>
 									<td>
@@ -76,7 +71,6 @@
 
 				<jsp:include page="../main/mainBottom.jsp"></jsp:include>
 </body>
-</html>
 <script>
 	function send_check(){
 		var f = document.f;	
@@ -92,13 +86,14 @@
 			type : 'POST',
 			data : {
 				pwd : $("#pwd").val(),
-				aid : $("#aid").val()
+				aid : $("#aid").val(),
+				dbname :$("#dbname").val()
 			},
 			success : function(data) {
 				if(data == 0){
-					self.window.alert("비밀번호가 일치하지 않습니다.");
+					self.window.alert("비밀번호or작성자가 일치하지 않습니다.");
 				}else{
-					self.window.alert("비밀번호를 확인하였습니다. 수정창으로 넘어갑니다.");
+					self.window.alert("비밀번호와 장성자가를 일치합니다. 수정창으로 이동합니다.");
 					f.submit();
 				}
 			},
@@ -107,3 +102,4 @@
 	
 
 </script>
+</html>

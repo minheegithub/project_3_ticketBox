@@ -63,21 +63,8 @@ public class boardInsert extends HttpServlet {
 		
 		response.setContentType("text/json");
 		PrintWriter pw = response.getWriter();
-		System.out.println(b);
-//		
 		pw.print(b);
-		
-		/*
-		String gogo = null;
-		
-		if(b) {
-			gogo = "writeResult.jsp";
-		}else {
-			gogo = "BoardList";
-		}
-		
-		RequestDispatcher rd1 = request.getRequestDispatcher("BoardList");
-		rd1.forward(request, response);*/
+
 	}
 
 }

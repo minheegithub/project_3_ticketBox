@@ -18,7 +18,7 @@
 
 %>
 
-<script language="javascript">
+<script>
 function send_check(){
 	var f = document.f;	
 	
@@ -60,18 +60,12 @@ function send_check(){
 		},
  	});
  	
-	 
-	
 }
 
-function fn_onload(){
-	document.f.subject.focus();
-	
-}
 </script>
  
 </head>
-<body onload="fn_onload()">
+<body>
 
 	    <jsp:include page="../main/mainTop.jsp"></jsp:include>
 	    
@@ -84,7 +78,6 @@ function fn_onload(){
 		        </aside>
 			<section>
 			<div id="board">
-			<!-- <form name="f" method="post" action="boardInsert"> -->
 			<form name="f" method="post" action="BoardList">
 					<table class="wirte_table" >					
 						 <caption>생생하고 솔직한 후기 작성 </caption>

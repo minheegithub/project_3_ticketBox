@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<td style="border-right:1px solid #ccc;">
-							<b>제목 </b>
+							<b>작품명 </b>
 						</td>
 						<td>
 							${view.subject}

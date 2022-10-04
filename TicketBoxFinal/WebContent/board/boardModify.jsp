@@ -43,14 +43,11 @@ function send_check(){
  	});	
 }
 
-function fn_onload(){
-	document.f.subject.focus();
-	
-}
+
 </script>
  
 </head>
-<body onload="fn_onload()">
+<body>
 
 		 <jsp:include page="../main/mainTop.jsp"></jsp:include>
 		    <!--메인이미지 박스-->

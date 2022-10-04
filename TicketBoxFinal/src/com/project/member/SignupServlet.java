@@ -84,15 +84,6 @@ public class SignupServlet extends HttpServlet {
         }
 
         if (isSuccess) {
-           /* request.setCharacterEncoding("UTF-8");
-            response.setContentType("text/html; charset=UTF-8");
-            PrintWriter writer = response.getWriter();
-
-            writer.println("회원가입에 성공했습니다.<br>");
-            writer.println("<a href='index.jsp'>로그인</a>");//자바스크립트로 바꾸기?
-            */ 
-
-        	
         	response.sendRedirect("index.jsp");
         }
     }

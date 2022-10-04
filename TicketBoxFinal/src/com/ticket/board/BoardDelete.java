@@ -48,10 +48,7 @@ public class BoardDelete extends HttpServlet {
 		}
 		
 		boolean b = dao.boardDelete(str_aid);
-		if(b) {
-			
-		}
-		
+
 		RequestDispatcher rd1 = request.getRequestDispatcher("BoardList");
 		rd1.forward(request, response);
 	

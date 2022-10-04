@@ -4,11 +4,6 @@
 	String aid= request.getParameter("str_aid");
 	if(aid == null || aid.equals("")){
 %>
-<!-- 	<script>
-		alert("잘못된 경로로의 접근");
-		location="pboard_list.jsp";
-	</script> -->
-
 
 <% 		
 	return;
@@ -40,10 +35,11 @@
 				data : {
 					pwd : $("#pwd").val(),
 					aid : $("#aid").val(),
+					dbname :$("#dbname").val()
 				},
 				success : function(data) {
 					if(data == 0){
-						self.window.alert("비밀번호가 일치하지 않습니다.");
+						self.window.alert("비밀번호or작성자가 일치하지 않습니다.");
 					}else{
 						self.window.alert("게시글을 삭제합니다.");
 						location.href="BoardDelete?aid="+aid;
@@ -51,15 +47,11 @@
 				},
 			});
 		}
-		
-		function fn_onload(){
-			document.f.pwd.focus();
-			
-		}
+	
 	</script>
 
 </head>
-<body onload="fn_onload()">
+<body>
 		    
 		  <jsp:include page="../main/mainTop.jsp"></jsp:include>
 		 
@@ -74,7 +66,7 @@
 				<div id="board">
 				<form name="f">
 				<input type="hidden" name="aid" value="${param.str_aid}" id="aid">
-				<input type="hidden" name="dbname" value="${param.name}" id="dbname">
+				<input type="hidden" name="dbname" value="${sessionScope.id}" id="dbname">
 					<table class="board_title">
 						<tr>
 							<td>

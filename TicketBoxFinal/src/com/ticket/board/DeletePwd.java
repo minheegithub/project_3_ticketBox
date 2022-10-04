@@ -44,6 +44,7 @@ public class DeletePwd extends HttpServlet {
 		
 		String pwd = request.getParameter("pwd");
 		String aid = request.getParameter("aid");
+		String dbname = request.getParameter("dbname");
 		
 		BoardDAO dao = null;
 		try {
@@ -56,14 +57,13 @@ public class DeletePwd extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		int cnt = dao.findPwd(aid, pwd);
+		int cnt = dao.findPwd(aid, pwd, dbname);
 		response.setContentType("text/json");
 		PrintWriter pw = response.getWriter();
 		
 //		일치는 1, 비일치는 0
 		pw.print(cnt);
 
-		
 	}
 
 }

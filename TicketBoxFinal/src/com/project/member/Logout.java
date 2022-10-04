@@ -28,11 +28,9 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("로그아웃하러 왔다.");
 		
 		HttpSession userSession = request.getSession();
 	    userSession.invalidate();
-
 
 		response.sendRedirect("index.jsp"); //로그아웃 후 로그인 페이지로 이동
 	}

@@ -73,10 +73,8 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("address", address);
                 session.setAttribute("email", email);
                 
+                response.sendRedirect("../main/ticketMain.jsp");
                 
-                response.sendRedirect("memInfo.jsp");
-                
-             
             } else {
                 response.sendRedirect("index.jsp");
             }
