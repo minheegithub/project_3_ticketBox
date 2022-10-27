@@ -17,14 +17,20 @@ import boardVO.ViewVO;
 public class BoardDAO {
 
 	private Connection con;
-
+	private static BoardDAO dao;
+	
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	Statement stmt = null;
-
-	public BoardDAO() throws ClassNotFoundException, SQLException {
+	
+	private BoardDAO() throws ClassNotFoundException, SQLException {
 		con = new DBConn().getConnection();
-
+	}
+	
+	public static BoardDAO getInstance() throws ClassNotFoundException, SQLException {
+		if(dao == null)
+			dao = new BoardDAO();
+		return dao;  //싱글톤 디자인패턴// 변수선언 x, 클래스.getInstance().함수(); 디비 커넥션을 한번만 진행하고 객체를 불러와서 쓴다.
 	}
 
 	public void pstmtClose() throws SQLException {
@@ -60,7 +66,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			System.out.println("Insert Exception");
 			return false;
-		} finally {	
+		} /*finally {	
 			try {
 				if(con != null)con.close();
 				if(pstmt != null)pstmt.close();
@@ -70,7 +76,7 @@ public class BoardDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	}
+	}*/
 		return true;
 	}
 	//str_aid현재 페이지
@@ -126,7 +132,7 @@ public class BoardDAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {	
+		} /*finally {	
 			try {
 				if(con != null)con.close();
 				if(pstmt != null)pstmt.close();
@@ -135,7 +141,7 @@ public class BoardDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
-		}
+		}*/
 		
 		return cnt;
 		
@@ -153,7 +159,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			System.out.println("delete Exception");
 			return false;
-		} finally {	
+		} /*finally {	
 			try {
 				if(con != null)con.close();
 				if(stmt != null) stmt.close();
@@ -162,7 +168,7 @@ public class BoardDAO {
 				e.printStackTrace();
 			}
 		}
-	
+	*/
 		return true;
 	}
 	
@@ -188,7 +194,7 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {	
+		} /*finally {	
 				try {
 					if(con != null)con.close();
 					if(pstmt != null)pstmt.close();
@@ -197,7 +203,7 @@ public class BoardDAO {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}
+		}*/
 		return v;
 	}
 	
@@ -217,7 +223,7 @@ public class BoardDAO {
 			e.printStackTrace();
 			System.out.println("update Exception");
 			return false;
-		} finally {	
+		} /*finally {	
 			try {
 				if(con != null)con.close();
 				if(pstmt != null)pstmt.close();
@@ -225,7 +231,7 @@ public class BoardDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	}
+	}*/
 		return true;
 	}
 	

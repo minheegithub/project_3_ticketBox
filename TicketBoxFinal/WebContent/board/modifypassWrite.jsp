@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <%
 	String aid= request.getParameter("str_aid");
 	if(aid == null || aid.equals("")){
 %>
-
 <% 		
 	return;
 	}
-
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +15,6 @@
 <title>게시글 수정 암호 입력화면 </title>
 <link href="../css/modifypassWrite.css" rel="stylesheet" type="text/css">
 <script src="../js/jquery-1.7.2.min.js"></script>
-
 
 </head>
 <body>

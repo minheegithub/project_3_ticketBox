@@ -50,7 +50,7 @@ public class BoardModify extends HttpServlet {
 		String jumsoo = request.getParameter("jumsoo");
 		
 		try {
-			board = new BoardDAO();
+			board = BoardDAO.getInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

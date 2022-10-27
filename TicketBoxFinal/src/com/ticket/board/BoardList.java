@@ -66,7 +66,7 @@ public class BoardList extends HttpServlet {
 		BoardDAO dao = null;
 		 
 		try {
-			dao = new BoardDAO();
+			dao = BoardDAO.getInstance();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

@@ -59,7 +59,6 @@
 		            <a href="#">
 		                <img src="../image/mozart.jpg" alt="이미지대체 텍스트">
 		            </a>
-		          
 		        </div>
 		    </div>
 		  
@@ -68,7 +67,6 @@
 			</div> 
 		
 			<jsp:include page="mainBottom.jsp"></jsp:include>
-	
 	
 </body>
 </html>

@@ -52,14 +52,14 @@ public class boardInsert extends HttpServlet {
 		String jumsoo = request.getParameter("jumsoo");
 	
 		try {
-			board = new BoardDAO();
+			board = BoardDAO.getInstance();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		Boolean b = board.insert_board(dbsubject, password,dbname, dbmemo, jumsoo);
+		Boolean b = board.insert_board(dbsubject, password, dbname, dbmemo, jumsoo);
 		
 		response.setContentType("text/json");
 		PrintWriter pw = response.getWriter();

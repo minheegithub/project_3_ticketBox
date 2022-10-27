@@ -51,7 +51,7 @@ public class ModifyPwd extends HttpServlet {
 		
 		BoardDAO dao = null;
 		try {
-			 dao =  new BoardDAO();
+			 dao = BoardDAO.getInstance();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

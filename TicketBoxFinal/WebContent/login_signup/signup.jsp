@@ -7,7 +7,6 @@
     <link href="../css/signup.css" rel="stylesheet" type="text/css"> 
 </head>
 <body>
-			
 		<jsp:include page="../main/mainTop.jsp"></jsp:include>
    		  <!--메인이미지 박스-->
 		<div id="main_picture1">
@@ -25,9 +24,10 @@
 		        		<caption>회원가입 선택 입력표</caption>
 				        <tr>
 				            <th class="first"><label for="id">아이디 </label></th>
-				            <td class="first"><input type="text" name="id" id="id" required class="textForm" placeholder="로그인 아이디를 입력해주세요" onkeydown="inputIdChk()">
-				        	<button type="button"  class="btn" onClick="openIdChk()" >중복확인</button>
-				        	<input type="hidden" name="idDuplication" value="idUncheck" >
+				            <td class="first">
+				            	<input type="text" name="id" id="id" required class="textForm" placeholder="로그인 아이디를 입력해주세요" onkeydown="inputIdChk()">
+					        	<button type="button"  class="btn" onClick="openIdChk()" >중복확인</button>
+					        	<input type="hidden" name="idDuplication" value="idUncheck" >
 							</td>
 				        </tr>
 			            <tr>
@@ -89,11 +89,9 @@
 	                    	</td>
                 		</tr>
 		        		<tr>
-			        
 			            	<th class="last"><label for="gender">성별</label></th>
 			            	<td class="last"><input type="radio" name="gender" id="gender" value="male"> 남성
 			            	<input type="radio" name="gender" value="female"> 여성</td>
-		         		
 		         		</tr>
           	    </table>
 	       	</fieldset>
@@ -105,8 +103,10 @@
    	</div><!-- id="join_wrap -->
 	<jsp:include page="../main/mainBottom.jsp"></jsp:include>
 	<script>
+	
 	function check_pw(){   
-		var pw = document.getElementById('pw').value;
+		 
+		 var pw = document.getElementById('pw').value;
 		
 		 if(!/^[a-zA-Z0-9]{8,20}$/.test(pw)){
 			 document.getElementById('check1').innerHTML='비밀번호는 숫자와 영문자 조합으로 8~20자리를 사용해야 합니다.';
@@ -126,7 +126,9 @@
                document.getElementById('check').style.color='red';
            }
        }
+	
 	}
+	
 	 function checkValue(){
 		 
 		 var form = document.userInfo;
@@ -145,41 +147,36 @@
 		 
 	 }
 		
-	  // 아이디 중복체크 화면open
-   function openIdChk(){
-   
-       window.name = "parentForm";
-       window.open("IdCheckForm.jsp",
-               "chkForm", "width=570, height=240, resizable = no, scrollbars = no");    
-   }
+	// 아이디 중복체크 화면open
+   	function openIdChk(){
+       window.name = "parentForm";//?????????
+       window.open("IdCheckForm.jsp", "chkForm", "width=570, height=240, resizable = no, scrollbars = no");    
+   	}
 
-   // 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
-   // 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때
-   // 다시 중복체크를 하도록 한다.
-   function inputIdChk(){
+   	// 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
+   	// 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때
+   	// 다시 중복체크를 하도록 한다.
+   	function inputIdChk(){
        document.userInfo.idDuplication.value ="idUncheck";
-   }
+   	}
 	
 	// opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
-		//document.domain = "abc.go.kr";
+	//document.domain = "abc.go.kr";
+	function goPopup(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open('jusoPopup.jsp','pop','width=570,height=420, scrollbars=yes, resizable=yes'); 
+		/* onclick="window.open('Seat_selection/Seat_main.jsp','name','resizable=no width=1100 height=615');return false"> 예매하기</button> */
 		
-		function goPopup(){
-			// 주소검색을 수행할 팝업 페이지를 호출합니다.
-			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-			var pop = window.open('jusoPopup.jsp','pop','width=570,height=420, scrollbars=yes, resizable=yes'); 
-			/* onclick="window.open('Seat_selection/Seat_main.jsp','name','resizable=no width=1100 height=615');return false"> 예매하기</button> */
-			
-			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-		    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
-		}
+		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+	    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+	}
 		
-		
-		function jusoCallBack(roadFullAddr){
-				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-				var addressEl = document.querySelector("#address");/*id=address  */
-				
-				addressEl.value=roadFullAddr;	
-		}
+	function jusoCallBack(roadFullAddr){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+		var addressEl = document.querySelector("#address");/*id=address  */
+		addressEl.value=roadFullAddr;	
+	}
 	</script>
 </body>
 </html>

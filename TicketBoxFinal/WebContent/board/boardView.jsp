@@ -17,10 +17,7 @@
 	if(sessionId == null ||sessionPw == null){
 		response.sendRedirect("../login_signup/index.jsp");
 	}
-
 %>
-
-
 <script>
 	$(function() {
 		/*.rating마다 할 일*/
@@ -107,7 +104,6 @@
 						${view.content}</td>
 					</tr>
 				</table>
-			 
 				<table width=500 class="btnT" >
 					<tr><td>
 						<input type=button value="목록" OnClick="window.location='BoardList'" class="btn">
@@ -125,7 +121,6 @@
  function deletepassWrite(){
   	location.href = "deletepassWrite.jsp?str_aid="+${view.aid};
  }
- 
  function modifypassWrite(){
 	 location.href = "modifypassWrite.jsp?str_aid="+${view.aid};
  }

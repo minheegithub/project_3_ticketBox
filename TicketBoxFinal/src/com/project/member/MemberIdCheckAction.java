@@ -39,25 +39,25 @@ public class MemberIdCheckAction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String id = request.getParameter("id");
-	        MemberDAO dao = null;
-	        
-	        try {
-				dao = new MemberDAO();
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        
-	        boolean result = dao.duplicateIdCheck(id);
-	        
-	        response.setContentType("text/html;charset=UTF-8;");
-	        PrintWriter out = response.getWriter();
-	 
-	        if(result)    out.println("0"); // 아이디 중복
-	        else        out.println("1");
-	        
-	        out.close();
+		String id = request.getParameter("id");
+        MemberDAO dao = null;
+        
+        try {
+			dao = MemberDAO.getInstance();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        boolean result = dao.duplicateIdCheck(id);
+        
+        response.setContentType("text/html;charset=UTF-8;");
+        PrintWriter out = response.getWriter();
+ 
+        if(result)    out.println("0"); // 아이디 중복
+        else        out.println("1");
+        
+        out.close();
 
 
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import memDAO.MemberDAO;
 import memDbconn.DBConnection;
 
 /**
@@ -41,10 +43,8 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-		Connection conn = null;
-        PreparedStatement pst = null;
-        String query = "INSERT INTO MEMBER(id, pw, name, phone, gender, address, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+        MemberDAO dao = null;
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
         String name = request.getParameter("name");
@@ -53,38 +53,22 @@ public class SignupServlet extends HttpServlet {
         String address = request.getParameter("address");
         String email = request.getParameter("mail1") + "@" + request.getParameter("mail2");
         
-        boolean isSuccess = true;
-
         try {
-            conn = DBConnection.connect();
-            pst = conn.prepareStatement(query);
-
-            pst.setString(1, id);
-            pst.setString(2, pw);
-            pst.setString(3, name);
-            pst.setString(4, phone);
-            pst.setString(5, gender);
-            pst.setString(6, address);
-            pst.setString(7, email);
-            pst.execute();
-
-        } catch (Exception e) {
-            System.out.println(e);
-            isSuccess = false;
-        } finally {
-            try {
-                if (pst != null)
-                    pst.close();
-
-                if (conn != null)
-                    conn.close();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
+			dao = MemberDAO.getInstance();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        boolean isSuccess = dao.join(id, pw, name, phone, gender, address, email);
 
         if (isSuccess) {
         	response.sendRedirect("index.jsp");
+        }else {
+        	response.sendRedirect("../main/ticketMain.jsp");
         }
     }
 }

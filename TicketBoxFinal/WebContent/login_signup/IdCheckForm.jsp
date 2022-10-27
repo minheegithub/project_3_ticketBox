@@ -46,14 +46,12 @@
         	height:24px;
         	font-size:12px;
         }
- 
    </style>
     
     <script>
-    
         var httpRequest = null;
         
-        // httpRequest 객체 생성
+        //httpRequest 객체 생성
         function getXMLHttpRequest(){
             var httpRequest = null;
         
@@ -65,20 +63,18 @@
                         httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
                     } catch (e2) { httpRequest = null; }
                 }
-            }
-            else if(window.XMLHttpRequest){
+            } else if(window.XMLHttpRequest){
                 httpRequest = new window.XMLHttpRequest();
             }
             return httpRequest;    
         }
         
-        
-        // 회원가입창의 아이디 입력란의 값을 가져온다.
+        //회원가입창의 아이디 입력란의 값을 가져온다.
         function pValue(){
             document.getElementById("userId").value = opener.document.userInfo.id.value;
         }
         
-        // 아이디 중복체크
+        //아이디 중복체크
         function idCheck(){
  
             var id = document.getElementById("userId").value;
@@ -86,7 +82,6 @@
             if (!id) {
                 alert("아이디를 입력하지 않았습니다.");
                 return false;
-           
             } else if((id < "0" || id > "9") && (id < "A" || id > "Z") && (id < "a" || id > "z")){ 
                 alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
                 return false;
@@ -98,6 +93,7 @@
                 httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
                 httpRequest.send(param);
             }
+        
         }
         
         function callback(){
@@ -125,9 +121,8 @@
             opener.document.userInfo.idDuplication.value ="idCheck";
             // 회원가입 화면의 ID입력란에 값을 전달
             opener.document.userInfo.id.value = document.getElementById("userId").value;
-            
             if (opener != null) {
-                opener.chkForm = null;
+                opener.chkForm = null;//???????
                 self.close();
             }    
         }    
@@ -153,5 +148,3 @@
 </div>    
 </body>
 </html>
-
-

@@ -61,7 +61,6 @@ function send_check(){
  	});
  	
 }
-
 </script>
  
 </head>

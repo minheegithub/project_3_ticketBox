@@ -13,10 +13,8 @@
 <%
 	String sessionId = (String)session.getAttribute("id");
 	String sessionPw = (String)session.getAttribute("pw");
-
 %>
    			
-   		
 	 	<div class="container" >
 			<div class="header"  >
 				<div class="social" >
@@ -31,14 +29,10 @@
 				<div class="location">
 					<ul>
 						 <%if(sessionId != null){ %>
-		              
 		               		<li><a href="${pageContext.request.contextPath}/login_signup/Logout">Logout</a></li>
 		                <%}else{ %>
 		                	<li><a href="${pageContext.request.contextPath}/login_signup/index.jsp">Login</a></li>
-		                
 		                <%} %>
-						
-						<%-- <li><a href="${pageContext.request.contextPath}/login_signup/index.jsp">Login</a></li> --%>
 						<li><a href="${pageContext.request.contextPath}/login_signup/signup.jsp">Join</a></li>
 						<li><a href="">개인정보취급방침</a></li>
 					</ul>
@@ -56,28 +50,20 @@
 		                <li><a href="#">콘서트 예매</a></li>
 		                <li><a href="${pageContext.request.contextPath}/login_signup/memInfo.jsp">마이페이지</a></li>
 		                <%-- li><a href=<%=request.getContextPath() + "/board/BoardList"%>>공연 후기 게시판</a> --%>
-		                
 		                <li><a href="${pageContext.request.contextPath}/board/BoardList">공연 후기 게시판</a>		         
 		                <li><a href="#">|</a></li> 
-		               
 		               <%if(sessionId != null){ %>
-		              
 		               		<li><a href="${pageContext.request.contextPath}/login_signup/Logout">*Logout</a></li>
 		                <%}else{ %>
 		                	<li><a href="${pageContext.request.contextPath}/login_signup/index.jsp">*Login</a></li>
-		                
 		                <%} %>
 		               		<li><a href="${pageContext.request.contextPath}/login_signup/signup.jsp">*Join</a></li>
 		            </ul>
-		
-		              <select>
+		            <select>
 		                <option>Language</option>
 		                <option>ENGLISH</option>
 		                <option>한국어</option>
 		            </select>  
 		        </div>
 		    </header>  
-		       
-		
-
 </html>

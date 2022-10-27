@@ -12,7 +12,6 @@
 <!--awesome icons--> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/69851f8880.js" crossorigin="anonymous"></script>
-</head>
 <script>
 	$(function() {
 		/*.rating마다 할 일*/
@@ -33,6 +32,7 @@
 		})
 	})
 </script>
+</head>
 <body>
 
 	    <jsp:include page="../main/mainTop.jsp"></jsp:include>
