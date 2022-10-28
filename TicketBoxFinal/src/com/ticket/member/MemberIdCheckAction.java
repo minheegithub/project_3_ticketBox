@@ -1,4 +1,4 @@
-package com.project.member;
+package com.ticket.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;

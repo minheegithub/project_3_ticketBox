@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import boardDbconn.DBConn;
+import boardLoginDbconn.DBConn;
 import boardVO.ListVO;
 import boardVO.ViewVO;
 

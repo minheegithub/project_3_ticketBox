@@ -1,4 +1,4 @@
-package boardDbconn;
+package boardLoginDbconn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
