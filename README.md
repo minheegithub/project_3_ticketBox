@@ -24,5 +24,5 @@
 <b>별점을 이용해 상영 작품에 대한 후기를 게시한다</b><br><br>
 <p align="center"><img src="https://user-images.githubusercontent.com/106230507/202133596-ca24321c-3158-4be2-9b70-779282730c96.png" width="700"></p>
 </li>
-</ul>
-    
+</ul><br>
+<hr>   
