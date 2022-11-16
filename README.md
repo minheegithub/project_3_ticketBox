@@ -1,5 +1,5 @@
 
-<p align="center"><img src="https://user-images.githubusercontent.com/106230507/202128701-d4223e82-ca02-4b45-b850-02b6ea005527.png"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/106230507/202128701-d4223e82-ca02-4b45-b850-02b6ea005527.png" width="300"></p>
 <h2 align="center">3rd Project TicketBox</h2>
 
 
@@ -18,7 +18,13 @@
 </li>
 </ul>
 
+
 <hr>
-<p align="center"><img src="https://user-images.githubusercontent.com/106230507/202128804-9e145be4-e0d7-49f1-9411-bfe42965c90f.png"></p>
+<p align="center"><b>프로젝트 이미지 - 1</b></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/106230507/202128804-9e145be4-e0d7-49f1-9411-bfe42965c90f.png" width="700"></p>
+<hr>
+<p align="center"><b>프로젝트 이미지 - 2</b></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/106230507/202133596-ca24321c-3158-4be2-9b70-779282730c96.png" width="700"></p>
+
 
 
